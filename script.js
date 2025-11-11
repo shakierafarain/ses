@@ -511,27 +511,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// Initialize Swiper for fullscreen slides
-const swiper = new Swiper('.home-swiper', {
-  direction: 'horizontal',
-  loop: true,
-  speed: 800,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  effect: 'fade',
-  fadeEffect: { crossFade: true },
-});
+// Hide spinner after page load
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('spinner').classList.add('hidden');
+      }, 1000);
+    });
 
+    // Add smooth interaction effects
+    const flexSlides = document.querySelectorAll('.flex-slide');
+    
+    flexSlides.forEach(slide => {
+      slide.addEventListener('mouseenter', function() {
+        // Add active class for additional effects if needed
+        this.classList.add('active');
+      });
+      
+      slide.addEventListener('mouseleave', function() {
+        this.classList.remove('active');
+      });
+    });
 
+    // Mobile touch support
+    if ('ontouchstart' in window) {
+      flexSlides.forEach(slide => {
+        slide.addEventListener('touchstart', function() {
+          flexSlides.forEach(s => s.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
 
 

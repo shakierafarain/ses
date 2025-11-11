@@ -68,53 +68,58 @@
 </ul>
   </nav>
 
-<!-- ===== FULLSCREEN SLIDER ===== -->
-  <section class="fullscreen-slider">
-    <div class="swiper home-swiper">
-      <div class="swiper-wrapper">
-        <!-- About -->
-        <div class="swiper-slide" style="background-image: url('ak1.png');">
-          <div class="slide-content">
-            <h1>About</h1>
-            <p>Discover the vision, mission, and values that drive SMART EDUCATION SOCIETY forward.</p>
-            <a href="about.html" class="slide-btn">Learn More</a>
-          </div>
-        </div>
+  <!-- Flex Container -->
+  <div class="flex-container">
 
-        <!-- Education -->
-        <div class="swiper-slide" style="background-image: url('ak1.png');">
-          <div class="slide-content">
-            <h1>Education</h1>
-            <p>Empowering students with knowledge, innovation, and lifelong learning opportunities.</p>
-            <a href="education.html" class="slide-btn">Explore</a>
-          </div>
-        </div>
-
-        <!-- Career -->
-        <div class="swiper-slide" style="background-image: url('ak1.png');">
-          <div class="slide-content">
-            <h1>Career</h1>
-            <p>Shape your future with guidance, mentorship, and career-building resources.</p>
-            <a href="career.html" class="slide-btn">Get Started</a>
-          </div>
-        </div>
-
-        <!-- Research -->
-        <div class="swiper-slide" style="background-image: url('ak1.png');">
-          <div class="slide-content">
-            <h1>Research</h1>
-            <p>Advancing society through scientific discovery, innovation, and collaboration.</p>
-            <a href="research.html" class="slide-btn">Discover</a>
-          </div>
+    <!-- About Panel -->
+    <div class="flex-slide about">
+      <div class="flex-content">
+        <i class="fas fa-info-circle icon-large"></i>
+        <div class="flex-title">About</div>
+        <div class="flex-about">
+          <p>Discover our mission to provide quality education and nurture tomorrow's leaders</p>
+          <a href="about.html" class="cta-button">Learn More</a>
         </div>
       </div>
-
-      <!-- Arrows & Pagination -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
     </div>
-  </section>
+
+    <!-- Education Panel -->
+    <div class="flex-slide education">
+      <div class="flex-content">
+        <i class="fas fa-graduation-cap icon-large"></i>
+        <div class="flex-title">Education</div>
+        <div class="flex-about">
+          <p>Explore our comprehensive educational programs designed for excellence</p>
+          <a href="education.html" class="cta-button">View Programs</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career Panel -->
+    <div class="flex-slide career">
+      <div class="flex-content">
+        <i class="fas fa-briefcase icon-large"></i>
+        <div class="flex-title">Career</div>
+        <div class="flex-about">
+          <p>Join our team and make a difference in shaping future generations</p>
+          <a href="career.html" class="cta-button">Join Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Panel -->
+    <div class="flex-slide research">
+      <div class="flex-content">
+        <i class="fas fa-flask icon-large"></i>
+        <div class="flex-title">Research</div>
+        <div class="flex-about">
+          <p>Advancing education through innovative research and development</p>
+          <a href="research.html" class="cta-button">Explore Research</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 <!-- Add this popup BEFORE the existing userPopup in your HTML -->
 
