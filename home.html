@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SES</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+
+  <!-- Fullscreen Intro Video -->
+<div id="introScreen" style="
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+">
+  <video id="introVideo" playsinline style="width:100%; height:100%; object-fit:cover; display:none;">
+    <source src="Intro SES.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button id="startButton" style="
+    background:#ffffff;
+    color:#000000;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+  ">Start Now</button>
+</div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <a href="home.html">
+        <img src="SES LOGO RENEW 4.png" alt="SES Logo">
+      </a>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+<div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
+  <i class="fas fa-bars" aria-hidden="true"></i>
+</div>
+
+<ul class="nav-links" id="navLinks">
+  <li><a href="home.html" class="active">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="education.html">Education</a></li>
+  <li><a href="career.html">Career</a></li>
+  <li><a href="research.html">Research</a></li>
+  <li>
+    <form id="searchForm" class="search-bar">
+      <input type="text" id="searchInput" placeholder="Cari...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </li>
+</ul>
+  </nav>
+
+<!-- ===== FULLSCREEN SLIDER ===== -->
+  <section class="fullscreen-slider">
+    <div class="swiper home-swiper">
+      <div class="swiper-wrapper">
+        <!-- About -->
+        <div class="swiper-slide" style="background-image: url('ak1.png');">
+          <div class="slide-content">
+            <h1>About</h1>
+            <p>Discover the vision, mission, and values that drive SMART EDUCATION SOCIETY forward.</p>
+            <a href="about.html" class="slide-btn">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="swiper-slide" style="background-image: url('ak1.png');">
+          <div class="slide-content">
+            <h1>Education</h1>
+            <p>Empowering students with knowledge, innovation, and lifelong learning opportunities.</p>
+            <a href="education.html" class="slide-btn">Explore</a>
+          </div>
+        </div>
+
+        <!-- Career -->
+        <div class="swiper-slide" style="background-image: url('ak1.png');">
+          <div class="slide-content">
+            <h1>Career</h1>
+            <p>Shape your future with guidance, mentorship, and career-building resources.</p>
+            <a href="career.html" class="slide-btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Research -->
+        <div class="swiper-slide" style="background-image: url('ak1.png');">
+          <div class="slide-content">
+            <h1>Research</h1>
+            <p>Advancing society through scientific discovery, innovation, and collaboration.</p>
+            <a href="research.html" class="slide-btn">Discover</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows & Pagination -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+<!-- Add this popup BEFORE the existing userPopup in your HTML -->
+
+<!-- Ads Popup (shows first) -->
+<div id="adsPopup" class="popup" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); z-index:10001;">
+  <div class="popup-content" style="position:relative; background:#fff; padding:0; border-radius:12px; width:550px; max-width:92%; max-height:90vh; overflow:auto; box-shadow:0 8px 36px rgba(0,0,0,0.18);">
+    
+    <!-- Close Button -->
+    <span 
+      id="closeAdsPopup" 
+      aria-label="Tutup" 
+      style="
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        color: #333;
+        font-size: 26px;
+        font-weight: bold;
+        cursor: pointer;
+        background: #f3f3f3;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.2s;
+        z-index: 10;
+      "
+      onmouseover="this.style.background='#e0e0e0'; this.style.transform='scale(1.1)';" 
+      onmouseout="this.style.background='#f3f3f3'; this.style.transform='scale(1)';"
+    >
+      &times;
+    </span>
+
+    <!-- Ads Image -->
+    <div style="padding: 15px; text-align: center;">
+      <img src="poster en am.jpg" alt="Advertisement" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </div>
+</div>
+
+<!-- Existing Popup Form (keep as is, but change z-index) -->
+<div id="userPopup" class="popup" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); z-index:9999;">
+  <div class="popup-content" style="position:relative; background:#fff; padding:28px; border-radius:12px; width:350px; max-width:94%; box-shadow:0 8px 36px rgba(0,0,0,0.18); text-align:center;">
+    
+    <!-- Close Button -->
+    <span 
+      id="closePopup" 
+      aria-label="Tutup" 
+      style="
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        color: #333;
+        font-size: 26px;
+        font-weight: bold;
+        cursor: pointer;
+        background: #f3f3f3;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.2s;
+        z-index: 10;
+      "
+      onmouseover="this.style.background='#e0e0e0'; this.style.transform='scale(1.1)';" 
+      onmouseout="this.style.background='#f3f3f3'; this.style.transform='scale(1)';"
+    >
+      &times;
+    </span>
+
+    <h2 style="color:#1f6b3a; margin-top:6px; font-size: 40px;">السلام عليکم</h2>
+    <p><b>Selamat datang ke SMTAA</b></p>
+    <p style="color:#3b855d;">Dapatkan info dan pengumuman terkini dengan mengisi maklumat anda di ruangan di bawah</p>
+
+    <form id="popupForm">
+      <div class="field-item" id="emelField" style="margin-bottom:9px;">
+        <input type="text" id="emel" name="emel" placeholder="Emel" required style="padding:10px; border-radius:8px; border:1px solid #ddd;">
+        <div id="emelError" class="input-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field-item" id="phoneField" style="margin-bottom:9px;">
+        <input type="tel" id="phone" name="phone" placeholder="No. Telefon" required style="padding:10px; border-radius:8px; border:1px solid #ddd;">
+        <div id="phoneError" class="input-error" aria-live="polite"></div>
+      </div>
+
+      <button type="submit" class="popup-submit" style="font-weight:700;">Hantar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Popup Form -->
+<div id="userPopup" class="popup" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); z-index:9999;">
+  <div class="popup-content" style="position:relative; background:#fff; padding:28px; border-radius:12px; width:350px; max-width:94%; box-shadow:0 8px 36px rgba(0,0,0,0.18); text-align:center;">
+    
+    <!-- Close Button -->
+    <span 
+  id="closePopup" 
+  aria-label="Tutup" 
+  style="
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    color: #333;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #f3f3f3;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 10;
+  "
+  onmouseover="this.style.background='#e0e0e0'; this.style.transform='scale(1.1)';" 
+  onmouseout="this.style.background='#f3f3f3'; this.style.transform='scale(1)';"
+>
+  &times;
+</span>
+
+    <h2 style="color:#1f6b3a; margin-top:6px; font-size: 40px;">السلام عليکم</h2>
+    <p><b>Selamat datang ke SMTAA</b></p>
+    <p style="color:#3b855d;">Dapatkan info dan pengumuman terkini dengan mengisi maklumat anda di ruangan di bawah</p>
+
+    <form id="popupForm">
+      <div class="field-item" id="emelField" style="margin-bottom:9px;">
+  <input type="text" id="emel" name="emel" placeholder="Emel" required style="padding:10px; border-radius:8px; border:1px solid #ddd;">
+        <div id="emelError" class="input-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field-item" id="phoneField" style="margin-bottom:9px;">
+  <input type="tel" id="phone" name="phone" placeholder="No. Telefon" required style="padding:10px; border-radius:8px; border:1px solid #ddd;">
+        <div id="phoneError" class="input-error" aria-live="polite"></div>
+      </div>
+
+      <button type="submit" class="popup-submit" style="font-weight:700;">Hantar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Welcome popup (after submit) -->
+<div id="welcomePopup" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); z-index:10000;">
+  <div style="position:relative; background:#fff; padding:26px; border-radius:12px; width:360px; max-width:92%; box-shadow:0 8px 36px rgba(0,0,0,0.18); text-align:center;">
+    <button id="closeWelcome" aria-label="Tutup" style="position:absolute; right:12px; top:8px; border:none; background:transparent; font-size:22px; cursor:pointer;">&times;</button>
+    <h3 style="color:#1f6b3a; margin-top:6px;">Terima Kasih!</h3>
+    <p>Selamat datang ke SMTAA. Terima kasih kerana mendaftar. Kami akan menghubungi anda tidak lama lagi.</p>
+    <button id="welcomeOk" style="margin-top:12px; padding:8px 16px; background:#2d5c4a; color:#fff; border:none; border-radius:8px; font-weight:600;">OK</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>SMART TAHFIZ FAST TRACK SPM | SEKOLAH MENENGAH TAHFIZ AL ATTAS</p>
+    <small>© 2026 أخلاق • علمو • عمل</small>
+
+    <!-- Logos inside white box -->
+    <div class="footer-logos-box">
+      <div class="footer-logos">
+        <img src="logo smtaa rbg.png" alt="SMTAA Logo" class="footer-logo">
+        <img src="ypbrbg.png" alt="YP Logo" class="footer-logo">
+        <img src="unifieldrbg.png" alt="UIC Logo" class="footer-logo">
+        <img src="SES LOGO RENEW 4.png" alt="SES Logo" class="footer-logo">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Support Widget -->
+<div class="support-widget">
+  <!-- Call Button -->
+  <a href="tel:+601118558600" class="call-icon" id="callIcon">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+  
+  <!-- Support Form Icon -->
+  <div class="support-icon" id="supportIcon">
+    <i class="fas fa-headset"></i>
+  </div>
+  
+  <div class="support-form-container" id="supportFormContainer">
+    <div class="support-form-header">
+      <h3>Ada Pertanyaan?</h3>
+      <span class="support-close" id="supportClose">&times;</span>
+    </div>
+    <form id="supportForm" class="support-form">
+      <div class="support-field">
+        <label for="supportName">Nama</label>
+        <input type="text" id="supportName" required placeholder="Masukkan nama anda">
+      </div>
+      <div class="support-field">
+        <label for="supportPhone">No. Telefon Bimbit</label>
+        <input type="tel" id="supportPhone" required placeholder="01xxxxxxxx">
+      </div>
+      <div class="support-field">
+        <label for="supportEmail">E-mel</label>
+        <input type="email" id="supportEmail" placeholder="email@example.com (optional)">
+      </div>
+      <div class="support-field">
+        <label for="supportQuestion">Soalan / Pertanyaan</label>
+        <textarea id="supportQuestion" rows="4" required placeholder="Tulis soalan anda di sini..."></textarea>
+      </div>
+      <button type="submit" class="support-submit-btn">
+        <i class="fas fa-paper-plane"></i> Hantar
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+
