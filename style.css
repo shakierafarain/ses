@@ -647,6 +647,11 @@ body {
   padding: 0 10px; /* small padding inside grid */
 }
 
+/* Add extra spacing between the About section and Vision/Mission on all sizes */
+.vision-mission {
+  margin-top: 40px; /* increases space between 'Who We Are' and the cards */
+}
+
 .vision-card, .mission-card {
   flex: 1;
   min-width: 280px;
