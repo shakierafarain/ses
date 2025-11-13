@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url(BG1.png); /* your image file name or URL */
+  background-image: url(assets/BG1.png); /* your image file name or URL */
   background-size: cover;       /* make it cover the whole page */
   background-repeat: no-repeat; /* don’t repeat the image */
   background-attachment: fixed; /* make it stay still while scrolling */
@@ -2308,7 +2308,7 @@ nav {
 .contact-section {
   text-align: center;
   padding: 60px 20px;
-  background-image: url(BG1.png); /* your image file name or URL */
+  background-image: url(assets/BG1.png); /* your image file name or URL */
   background-size: cover;       /* make it cover the whole page */
   background-repeat: no-repeat; /* don’t repeat the image */
   background-attachment: fixed; /* make it stay still while scrolling */
@@ -2888,7 +2888,7 @@ input[type="checkbox"] {
 /* FAQs Section - Accordion Style */
 .faqs-section {
   padding: 60px 20px;
-  background-image: url(BG1.png);
+  background-image: url(assets/BG1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
