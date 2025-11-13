@@ -47,95 +47,203 @@
     </div>
   </header>
 
-  <!-- Pelajar Terbaik -->
-<section class="pelajar-terbaik">
-  <h2>Pelajar Terbaik SPM</h2>
-
-  <!-- Batch 2 -->
-  <div class="batch-section">
-    <h3>Batch 2</h3>
-    <div class="batch-grid">
-      <div class="student">
-        <img src="8A.png" alt="Pelajar Terbaik Batch 2A" class="enlargeable">
-        <p>Dani</p>
+  <!-- Split Career Section -->
+  <section class="career-split-section">
+    <div class="career-container">
+      
+      <!-- Left Side: Fulltime Job -->
+      <div class="career-side left-side" id="fulltimeSide">
+        <div class="career-content">
+          <h2>Fulltime Job</h2>
+          <p class="career-tagline">Join Our Team</p>
+          <p class="career-description">
+            We are looking for dedicated individuals to join our teaching and administrative team. 
+            Help us shape the next generation with quality education and strong values.
+          </p>
+          <ul class="career-benefits">
+            <li><i class="fas fa-check-circle"></i> Competitive salary & benefits</li>
+            <li><i class="fas fa-check-circle"></i> Career development opportunities</li>
+            <li><i class="fas fa-check-circle"></i> Harmonious work environment</li>
+          </ul>
+          <button class="apply-btn" id="fulltimeBtn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Apply Now</span>
+          </button>
+        </div>
       </div>
-      <div class="student">
-        <img src="7A.png" alt="Pelajar Terbaik Batch 2B" class="enlargeable">
-        <p>Fitri</p>
+
+      <!-- Right Side: Internship -->
+      <div class="career-side right-side" id="internshipSide">
+        <div class="career-content">
+          <h2>Internship Application</h2>
+          <p class="career-tagline">Start Your Journey</p>
+          <p class="career-description">
+            Practical training program for students and graduates seeking experience in education. 
+            Learn from experts and develop your professional skills.
+          </p>
+          <ul class="career-benefits">
+            <li><i class="fas fa-check-circle"></i> Practical experience</li>
+            <li><i class="fas fa-check-circle"></i> Experienced mentor guidance</li>
+            <li><i class="fas fa-check-circle"></i> Industrial training certificate</li>
+          </ul>
+          <button class="apply-btn" id="internshipBtn">
+            <span>Apply Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Fulltime Application Form (appears on right when fulltime clicked) -->
+      <div class="application-form-overlay" id="fulltimeForm">
+        <button class="close-form" id="closeFulltimeForm">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="form-container">
+          <h3>Fulltime Job Application</h3>
+          <p class="form-subtitle">Please fill in the following information</p>
+          <form class="career-form">
+            <div class="form-group">
+              <label for="ft-name">Full Name</label>
+              <input type="text" id="ft-name" required placeholder="Ahmad bin Abdullah">
+            </div>
+            <div class="form-group">
+              <label for="ft-age">Age</label>
+              <input type="number" id="ft-age" required placeholder="25">
+            </div>
+            <div class="form-group">
+              <label for="ft-email">Email</label>
+              <input type="email" id="ft-email" required placeholder="ahmad@example.com">
+            </div>
+            <div class="form-group">
+              <label for="ft-phone">Phone Number</label>
+              <input type="tel" id="ft-phone" required placeholder="01xxxxxxxx">
+            </div>
+            <div class="form-group">
+              <label for="ft-position">Position Applied</label>
+              <select id="ft-position" required>
+                <option value="">Select Position</option>
+                <option value="teacher">Teacher</option>
+                <option value="admin">Administrator</option>
+                <option value="counselor">Counselor</option>
+                <option value="it">IT Officer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ft-experience">Work Experience (years)</label>
+              <input type="number" id="ft-experience" required placeholder="0">
+            </div>
+            <div class="form-group">
+              <label for="ft-qualification">Highest Qualification</label>
+              <input type="text" id="ft-qualification" required placeholder="Bachelor's Degree">
+            </div>
+            <div class="form-group full-width">
+              <label for="ft-message">Why are you suitable for this position?</label>
+              <textarea id="ft-message" rows="4" required placeholder="Write a brief cover letter..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Internship Application Form (appears on left when internship clicked) -->
+      <div class="application-form-overlay" id="internshipForm">
+        <button class="close-form" id="closeInternshipForm">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="form-container">
+          <h3>Internship Application</h3>
+          <p class="form-subtitle">Please fill in the following information</p>
+          <form class="career-form">
+            <div class="form-group">
+              <label for="int-name">Full Name</label>
+              <input type="text" id="int-name" required placeholder="Fatimah binti Hassan">
+            </div>
+            <div class="form-group">
+              <label for="int-age">Age</label>
+              <input type="number" id="int-age" required placeholder="22">
+            </div>
+            <div class="form-group">
+              <label for="int-email">Email</label>
+              <input type="email" id="int-email" required placeholder="fatimah@example.com">
+            </div>
+            <div class="form-group">
+              <label for="int-phone">Phone Number</label>
+              <input type="tel" id="int-phone" required placeholder="01xxxxxxxx">
+            </div>
+            <div class="form-group">
+              <label for="int-institution">Educational Institution</label>
+              <input type="text" id="int-institution" required placeholder="University of Malaya">
+            </div>
+            <div class="form-group">
+              <label for="int-course">Course/Field of Study</label>
+              <input type="text" id="int-course" required placeholder="Education">
+            </div>
+            <div class="form-group">
+              <label for="int-duration">Training Period Applied</label>
+              <select id="int-duration" required>
+                <option value="">Select Duration</option>
+                <option value="1month">1 Month</option>
+                <option value="3months">3 Months</option>
+                <option value="6months">6 Months</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="int-message">Industrial Training Objectives</label>
+              <textarea id="int-message" rows="4" required placeholder="What do you hope to learn..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Batch 3 -->
-  <div class="batch-section">
-    <h3>Batch 3</h3>
-    <div class="batch-grid">
-      <div class="student">
-        <img src="b36A.jpg" alt="Pelajar Terbaik Batch 3A" class="enlargeable">
-        <p>Farihin</p>
-      </div>
-      <div class="student">
-        <img src="b36A1.jpg" alt="Pelajar Terbaik Batch 3B" class="enlargeable">
-        <p>Kasyful</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Batch 4 -->
-  <div class="batch-section">
-    <h3>Batch 4</h3>
-    <div class="batch-grid">
-      <div class="student">
-        <img src="b45A.jpg" alt="Pelajar Terbaik Batch 4A" class="enlargeable">
-        <p>Danish</p>
-      </div>
-      <div class="student">
-        <img src="b45A1.jpg" alt="Pelajar Terbaik Batch 4B" class="enlargeable">
-        <p>Dina</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Batch 5 -->
-  <div class="batch-section">
-    <h3>Batch 5</h3>
-    <div class="batch-grid">
-      <div class="student">
-        <img src="b55A.jpg" alt="Pelajar Terbaik Batch 5A" class="enlargeable">
-        <p>Zubair</p>
-      </div>
-      <div class="student">
-        <img src="b55A1.jpg" alt="Pelajar Terbaik Batch 5B" class="enlargeable">
-        <p>Amirah</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Lightbox for enlarging images -->
-<div id="lightbox" class="lightbox">
-  <div class="lightbox-wrapper">
-    <span class="close" onclick="document.getElementById('lightbox').style.display='none'">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged Image">
-  </div>
-</div>
+  </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-content">
-    <p>SMART TAHFIZ FAST TRACK SPM | SEKOLAH MENENGAH TAHFIZ AL ATTAS</p>
-    <small>© 2026 أخلاق • علمو • عمل</small>
-
-    <!-- Logos inside white box -->
-    <div class="footer-logos-box">
-      <div class="footer-logos">
-        <img src="logo smtaa rbg.png" alt="SMTAA Logo" class="footer-logo">
-        <img src="ypbrbg.png" alt="YP Logo" class="footer-logo">
-        <img src="unifieldrbg.png" alt="UIC Logo" class="footer-logo">
-        <img src="SES LOGO RENEW 4.png" alt="SES Logo" class="footer-logo">
-      </div>
-    </div>
-  </div>
+        <div class="wave-container">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+            <div class="wave wave-4"></div>
+            <div class="interference interference-1"></div>
+            <div class="interference interference-2"></div>
+            <div class="interference interference-3"></div>
+        </div>
+        <div class="footer-content">
+            <!-- Social Media Icons -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61557535262481" target="_blank" rel="noopener" aria-label="Facebook" style="color: white;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" style="color: white;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: white;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/smtaa.uic/" target="_blank" rel="noopener" aria-label="Instagram" style="color: white;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <!-- Footer Navigation Links -->
+            <div class="footer-links">
+                <a href="home.html" style="color: white;">Home</a>
+                <a href="about.html" style="color: white;">About</a>
+                <a href="#services" style="color: white;">Services</a>
+                <a href="#team" style="color: white;">Team</a>
+                <a href="#contact" style="color: white;">Contact</a>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright" style="color: white;">
+                ©2026 Smart Education Society | All Rights Reserved
+            </div>
+        </div>
 </footer>
 
 <!-- Floating Support Widget -->

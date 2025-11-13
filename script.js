@@ -673,3 +673,212 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   updateCarousel(0);
 });
+
+// === Education Carousel Logic ===
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('education-carousel');
+  if (!carousel) return; // Exit if carousel doesn't exist on this page
+
+  const carouselCells = document.querySelectorAll('#education-carousel li');
+  const carouselDots = document.querySelectorAll('#carousel-dots li');
+  const prevBtn = document.querySelector('#education-carousel-nav .carousel-nav.prev');
+  const nextBtn = document.querySelector('#education-carousel-nav .carousel-nav.next');
+  let currentIndex = 0;
+
+  // Only run if carousel exists
+  if (carouselCells.length === 0) return;
+
+  function updateCarousel() {
+    // Remove all item classes from all cards
+    carouselCells.forEach(card => {
+      card.className = 'education-card'; // Reset to base class
+      // Re-add featured class if it's the SMTAA card
+      if (card.querySelector('h3')?.textContent.includes('Smart Tahfiz')) {
+        card.classList.add('featured');
+      }
+    });
+
+    // Apply positioning based on current index
+    carouselCells.forEach((card, index) => {
+      let position = index - currentIndex;
+      
+      // Wrap around for circular behavior
+      if (position < -1) position += carouselCells.length;
+      if (position > 1) position -= carouselCells.length;
+
+      // Apply item classes based on position
+      if (position === 0) {
+        card.classList.add('item-1'); // Center
+      } else if (position === 1) {
+        card.classList.add('item-2'); // Right
+      } else if (position === -1) {
+        card.classList.add('item-3'); // Left
+      } else {
+        card.classList.add('item-hidden'); // Hidden
+      }
+    });
+
+    // Update dots
+    carouselDots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    console.log('Carousel updated to index:', currentIndex);
+  }
+
+  // Next button
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % carouselCells.length;
+      updateCarousel();
+      console.log('Next clicked, index now:', currentIndex);
+    });
+  }
+
+  // Previous button
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + carouselCells.length) % carouselCells.length;
+      updateCarousel();
+      console.log('Prev clicked, index now:', currentIndex);
+    });
+  }
+
+  // Card clicks
+  carouselCells.forEach((cell, index) => {
+    cell.addEventListener('click', (e) => {
+      // Don't trigger if clicking on button
+      if (e.target.classList.contains('card-btn') || e.target.closest('.card-btn')) {
+        return;
+      }
+      currentIndex = index;
+      updateCarousel();
+    });
+  });
+
+  // Prevent button clicks from triggering card click
+  const cardButtons = document.querySelectorAll('.education-card .card-btn');
+  cardButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Add your button action here
+      console.log('Button clicked');
+    });
+  });
+
+  // Pagination dots
+  carouselDots.forEach((dot, index) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentIndex = index;
+      updateCarousel();
+    });
+  });
+
+  // Left/Right arrow keys
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 37) { // Left arrow
+      currentIndex = (currentIndex - 1 + carouselCells.length) % carouselCells.length;
+      updateCarousel();
+      e.preventDefault();
+    } else if (e.keyCode === 39) { // Right arrow
+      currentIndex = (currentIndex + 1) % carouselCells.length;
+      updateCarousel();
+      e.preventDefault();
+    }
+  });
+
+  // Initialize
+  updateCarousel();
+  console.log('Education carousel initialized with', carouselCells.length, 'cards');
+});
+
+// === Career Page Split Screen Logic ===
+document.addEventListener('DOMContentLoaded', () => {
+  const fulltimeBtn = document.getElementById('fulltimeBtn');
+  const internshipBtn = document.getElementById('internshipBtn');
+  const fulltimeForm = document.getElementById('fulltimeForm');
+  const internshipForm = document.getElementById('internshipForm');
+  const closeFulltimeForm = document.getElementById('closeFulltimeForm');
+  const closeInternshipForm = document.getElementById('closeInternshipForm');
+
+  // Exit if not on career page
+  if (!fulltimeBtn || !internshipBtn) return;
+
+  // Fulltime Apply Now - toggle form on right
+  fulltimeBtn.addEventListener('click', () => {
+    // Toggle fulltime form
+    fulltimeForm.classList.toggle('active');
+    // Close internship form if open
+    internshipForm.classList.remove('active');
+  });
+
+  // Internship Apply Now - toggle form on left
+  internshipBtn.addEventListener('click', () => {
+    // Toggle internship form
+    internshipForm.classList.toggle('active');
+    // Close fulltime form if open
+    fulltimeForm.classList.remove('active');
+  });
+
+  // Close Fulltime Form
+  closeFulltimeForm.addEventListener('click', () => {
+    fulltimeForm.classList.remove('active');
+  });
+
+  // Close Internship Form
+  closeInternshipForm.addEventListener('click', () => {
+    internshipForm.classList.remove('active');
+  });
+
+  // Form submissions
+  const careerForms = document.querySelectorAll('.career-form');
+  careerForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(e.target);
+      
+      // Simple validation passed - show success message
+      alert('Terima kasih! Permohonan anda telah diterima. Kami akan menghubungi anda tidak lama lagi.');
+      
+      // Reset form and close overlay
+      e.target.reset();
+      fulltimeForm.classList.remove('active');
+      internshipForm.classList.remove('active');
+      
+      // Here you can add actual form submission logic
+      // e.g., send to Google Sheets, backend API, etc.
+    });
+  });
+
+  // Close form when clicking outside
+  fulltimeForm.addEventListener('click', (e) => {
+    if (e.target === fulltimeForm) {
+      fulltimeForm.classList.remove('active');
+    }
+  });
+
+  internshipForm.addEventListener('click', (e) => {
+    if (e.target === internshipForm) {
+      internshipForm.classList.remove('active');
+    }
+  });
+
+  // ESC key to close forms
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      fulltimeForm.classList.remove('active');
+      internshipForm.classList.remove('active');
+    }
+  });
+});
