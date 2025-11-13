@@ -692,10 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove all item classes from all cards
     carouselCells.forEach(card => {
       card.className = 'education-card'; // Reset to base class
-      // Re-add featured class if it's the SMTAA card
-      if (card.querySelector('h3')?.textContent.includes('Smart Tahfiz')) {
-        card.classList.add('featured');
-      }
     });
 
     // Apply positioning based on current index
@@ -708,7 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Apply item classes based on position
       if (position === 0) {
-        card.classList.add('item-1'); // Center
+        card.classList.add('item-1', 'featured'); // Center card gets featured class
       } else if (position === 1) {
         card.classList.add('item-2'); // Right
       } else if (position === -1) {
