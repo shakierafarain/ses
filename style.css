@@ -3279,7 +3279,8 @@ input[type="checkbox"] {
       color: #082a7b;
       text-align: center;
       margin-bottom: 3rem;
-      font-family: 'Poppins', sans-serif;
+      /* Match the same font-family as the 'Who We Are' h2 by inheriting the page font */
+      font-family: inherit;
     }
 
     .carousel-container {
