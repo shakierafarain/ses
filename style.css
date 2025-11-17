@@ -154,7 +154,7 @@ body {
   .nav-links {
     display: none; /* hidden by default */
     flex-direction: column;
-    background: hsl(210 75% 40%);
+    background: #0d47a1;
     position: absolute;
     top: 60px;
     right: 0;
@@ -2139,7 +2139,7 @@ nav {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #0082C3;
+  background-color: hsl(210 75% 40%);
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 10000;
@@ -2160,7 +2160,7 @@ nav {
 }
 
 .dropdown-content a:hover {
-  background-color: #0082C3;
+  background-color: hsl(210 75% 40%);
   color: #ffcc00;
 }
 
@@ -2224,7 +2224,7 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
-  color: #0082C3;
+  color: hsl(210 75% 40%);
   font-size: 1rem;
 }
 
@@ -2247,7 +2247,7 @@ nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #317873;
+    background: hsl(210 75% 40%);
     position: absolute;
     top: 60px; /* below navbar */
     left: 0;
@@ -2273,7 +2273,7 @@ nav {
   .dropdown-content {
     position: static; /* Change from absolute to static */
     display: none;
-    background-color: #0082C3; /* Slightly darker for contrast */
+    background-color: hsl(210 75% 40%); /* Slightly darker for contrast */
     box-shadow: none;
     margin-top: 0;
     padding-top: 0;
