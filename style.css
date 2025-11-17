@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url(assets/BG1.png); /* your image file name or URL */
+  background-image: url(assets/SMART\ TAHFIZ\ \(1\).jpg); /* your image file name or URL */
   background-size: cover;       /* make it cover the whole page */
   background-repeat: no-repeat; /* don’t repeat the image */
   background-attachment: fixed; /* make it stay still while scrolling */
@@ -69,7 +69,10 @@ body {
   padding: 10px 20px;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
+  /* Consistent navbar height for dropdown offset */
+  --navbar-height: 72px;
+  min-height: var(--navbar-height);
   flex-wrap: wrap; /* allows items to wrap instead of overflowing */
   box-sizing: border-box;
 }
@@ -155,13 +158,14 @@ body {
     display: none; /* hidden by default */
     flex-direction: column;
     background: #0d47a1;
-    position: absolute;
-    top: 60px;
+    position: fixed; /* detach from navbar so it sits underneath */
+    top: var(--navbar-height, 72px);
+    left: 0;
     right: 0;
     width: 100%;
     padding: 15px 0;
     box-sizing: border-box;
-    z-index: 999;
+    z-index: 900; /* keep below navbar (which is 1100) */
   }
 
   .nav-links.active {
@@ -1169,7 +1173,10 @@ body {
   padding: 15px 40px;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
+  /* Consistent navbar height for dropdown offset */
+  --navbar-height: 72px;
+  min-height: var(--navbar-height);
 }
 
 .navbar .logo {
@@ -2248,12 +2255,13 @@ nav {
     flex-direction: column;
     width: 100%;
     background: hsl(210 75% 40%);
-    position: absolute;
-    top: 60px; /* below navbar */
+    position: fixed; /* sit below the navbar */
+    top: var(--navbar-height, 85px);
     left: 0;
+    right: 0;
     padding: 20px 0;
     text-align: center;
-    z-index: 9999;
+    z-index: 1000; /* below navbar (1100) */
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   }
 
