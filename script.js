@@ -878,3 +878,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Parallax scroll effects for corporate shapes
+    window.addEventListener('scroll', () => {
+      const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+      const navbar = document.querySelector('#navbar');
+      const welcomeSection = document.querySelector('#welcome-section');
+      const shapes = document.querySelectorAll('.shape');
+
+      // Navbar background on scroll
+      if (scrollPos + 100 >= window.innerHeight) {
+        navbar.classList.add('bg-active');
+      } else {
+        navbar.classList.remove('bg-active');
+      }
+
+      // Parallax shapes effect
+      shapes.forEach((shape, index) => {
+        if (scrollPos <= window.innerHeight) {
+          const speed = 0.3 + (index * 0.1);
+          shape.style.transform = `translateY(${scrollPos * speed}px) ${index === 1 ? 'rotate(45deg)' : ''}`;
+        }
+      });
+
+      // Hide welcome section when scrolled past
+      if (welcomeSection) {
+        if (scrollPos - 100 <= window.innerHeight) {
+          welcomeSection.style.visibility = 'visible';
+        } else {
+          welcomeSection.style.visibility = 'hidden';
+        }
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for business items animation
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all business items
+    document.querySelectorAll('.business-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Add hover animation to cards
+    const cards = document.querySelectorAll('.experience-card, .business-item');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transition = 'all 300ms cubic-bezier(0.77, 0, 0.175, 1)';
+      });
+    });
