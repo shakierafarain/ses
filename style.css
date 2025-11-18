@@ -207,6 +207,8 @@ body {
       overflow-x: hidden;
       max-width: 100vw;
       overscroll-behavior-x: none;
+      /* Prevent any horizontal scroll */
+      width: 100%;
     }
 
     body {
@@ -819,6 +821,8 @@ body {
                 height: auto; /* Allow footer to expand */
                 overflow: hidden; /* Clip footer at its boundaries */
                 background: black;
+                /* Prevent footer waves from causing horizontal scroll */
+                max-width: 100vw;
             }
 
             .wave-container {
@@ -829,6 +833,33 @@ body {
                 height: 150%;
                 max-height: 500px;
                 pointer-events: none;
+                /* Ensure waves don't cause horizontal overflow */
+                overflow: hidden;
+                max-width: 100%;
+            }
+
+            /* Mobile overflow protection */
+            @media (max-width: 768px) {
+                html, body {
+                    overflow-x: hidden !important;
+                    max-width: 100vw !important;
+                    width: 100% !important;
+                }
+                
+                footer {
+                    overflow: hidden !important;
+                    max-width: 100vw !important;
+                }
+                
+                .wave-container {
+                    overflow: hidden !important;
+                    max-width: 100% !important;
+                }
+                
+                .wave {
+                    max-width: 200% !important;
+                    right: auto !important;
+                }
             }
 
             .wave {
@@ -1495,7 +1526,7 @@ body {
     .footer-social-new {
       position: static !important;
       flex-direction: row !important;
-      gap: 0.6rem !important;
+      gap: 1rem !important;
       margin-left: 0 !important;
       justify-content: center !important;
       align-items: center !important;
@@ -1536,7 +1567,37 @@ body {
     .footer-contact-row {
       flex-direction: column !important;
       gap: 1rem !important;
-      align-items: flex-start !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    /* Center contact info and social media on mobile */
+    .footer-contact-column {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .footer-contact {
+      text-align: center !important;
+      align-items: center !important;
+    }
+
+    .footer-contact li {
+      text-align: center !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .footer-social-new {
+      position: static !important;
+      flex-direction: row !important;
+      gap: 1rem !important;
+      margin-left: 0 !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 1rem !important;
     }
   }
           
