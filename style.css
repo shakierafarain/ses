@@ -2036,10 +2036,16 @@ body {
     padding: 30px 20px;
   }
   
-  .education-card.item-2,
+  .education-card.item-2 {
+    opacity: 0.5;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(0.55) translate3d(80%, 30px, 0);
+  }
+  
   .education-card.item-3 {
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0.5;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(0.55) translate3d(-80%, 30px, 0);
   }
   
   #education-carousel-nav .carousel-nav {

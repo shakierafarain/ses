@@ -795,6 +795,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   updateCarousel();
   console.log('Education carousel initialized with', carouselCells.length, 'cards');
+
+  // Touch swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const minSwipeDistance = 50;
+
+  if (carousel) {
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      
+      if (Math.abs(swipeDistance) >= minSwipeDistance) {
+        if (swipeDistance > 0) {
+          // Swipe right - previous
+          currentIndex = (currentIndex - 1 + carouselCells.length) % carouselCells.length;
+        } else {
+          // Swipe left - next
+          currentIndex = (currentIndex + 1) % carouselCells.length;
+        }
+        updateCarousel();
+      }
+    }, { passive: true });
+  }
 });
 
 // === Career Page Split Screen Logic ===
