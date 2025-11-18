@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESEARCH - SES</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/SES LOGO RENEW 4.png" alt="SMTAA Logo">
+        
+      </a>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+<div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
+  <i class="fas fa-bars" aria-hidden="true"></i>
+</div>
+
+<ul class="nav-links" id="navLinks">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="education.html">Education</a></li>
+  <li><a href="career.html">Career</a></li>
+  <li><a href="portfolio.html" class="active">Portfolio</a></li>
+  <li>
+    <form id="searchForm" class="search-bar">
+      <input type="text" id="searchInput" placeholder="Cari...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </li>
+</ul>
+  </nav>
+
+<!-- Hero section -->
+  <header class="hero small-hero">
+    <div class="hero-content">
+      <h1>PORTFOLIO</h1>
+      <p>Leading Strategy, Driving Impact</p>
+    </div>
+  </header>
+
+  <!-- Director Profile -->
+  <section id="about">
+    <div class="profile-wrapper">
+      <div class="section-title">
+        <h3>Profil Pengarah</h3>
+        <div class="separator"></div>
+        <p class="subtitle">Kepimpinan yang Berpengalaman dan Berdedikasi</p>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-image-container">
+          <!-- Replace this placeholder with actual director image -->
+          <img src="assets/director-photo.jpg" alt="Director Photo" class="profile-image" 
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div style="display: none; width: 300px; height: 300px; border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); align-items: center; justify-content: center; color: white; font-size: 80px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+            <i class="fas fa-user-tie"></i>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h2>Nama Pengarah</h2>
+          <div class="profile-title">Pengarah Urusan | Usahawan Berjaya</div>
+          <div class="profile-bio">
+            <p>Seorang usahawan berpengalaman dengan kepakaran dalam pelbagai bidang perniagaan. Dengan visi yang jelas dan komitmen yang tinggi, beliau telah membangunkan beberapa perniagaan yang berjaya dan mampan.</p>
+            <p>Dedikasi beliau dalam memberi impak positif kepada masyarakat dan membangunkan institusi pendidikan berkualiti tinggi menjadi tunjang kepada semua usaha perniagaan yang dijalankan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="experience-container">
+        <div class="section-title">
+          <h3>Pengalaman Profesional</h3>
+          <div class="separator"></div>
+        </div>
+        
+        <div class="experience-grid">
+          <div class="experience-card">
+            <h4>Pengarah - SMTAA</h4>
+            <div class="year">2020 - Kini</div>
+            <p>Menguruskan operasi dan pembangunan Smart Maahad Tahfiz Al-Attas, menyediakan pendidikan Islam berkualiti tinggi yang menggabungkan pembelajaran tahfiz dengan kurikulum moden.</p>
+          </div>
+
+          <div class="experience-card">
+            <h4>Pengasas - Kopi Saigon</h4>
+            <div class="year">2018 - Kini</div>
+            <p>Membangunkan jenama kopi tempatan yang menggabungkan cita rasa tradisional Vietnam dengan konsep moden, menawarkan pengalaman kopi premium kepada pelanggan.</p>
+          </div>
+
+          <div class="experience-card">
+            <h4>Usahawan - Industri Pembalakan</h4>
+            <div class="year">2015 - Kini</div>
+            <p>Menguruskan operasi pembalakan yang mematuhi piawaian kelestarian alam sekitar dan bertanggungjawab terhadap pengurusan hutan.</p>
+          </div>
+
+          <div class="experience-card">
+            <h4>Kontraktor - Industri Pembinaan</h4>
+            <div class="year">2012 - Kini</div>
+            <p>Menyediakan perkhidmatan pembinaan berkualiti untuk projek-projek pembangunan komersial dan residensi dengan komitmen kepada kualiti dan ketepatan masa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Portfolio -->
+  <section id="projects">
+    <div class="section-title">
+      <h3>Portfolio Perniagaan</h3>
+      <div class="separator"></div>
+      <p class="subtitle">Pelbagai bidang perniagaan yang diuruskan dengan profesional dan berdedikasi</p>
+    </div>
+    
+    <div class="business-container">
+      <!-- Kopi Saigon - Image Left, Content Right -->
+      <div class="business-item">
+        <div class="business-image-wrapper coffee-gradient">
+          <img src="assets/kopi-saigon.jpg" alt="Kopi Saigon" onerror="this.style.display='none';">
+          <i class="fas fa-coffee business-icon"></i>
+        </div>
+        <div class="business-content-wrapper">
+          <div class="business-category">F&B • Kopi Premium</div>
+          <h3>Kopi Saigon</h3>
+          <p>Kedai kopi yang menawarkan pengalaman kopi premium dengan cita rasa istimewa. Menggabungkan warisan kopi Vietnam dengan sentuhan tempatan untuk memberikan pengalaman yang unik dan berkesan kepada setiap pelanggan.</p>
+          <p>Kopi Saigon bukan sekadar tempat minum kopi, tetapi destinasi untuk menikmati kehangatan suasana dan kualiti minuman yang terbaik. Setiap cawan disediakan dengan teliti menggunakan biji kopi pilihan dan teknik penyediaan tradisional.</p>
+          <div class="business-tags">
+            <span class="tag">Kopi Premium</span>
+            <span class="tag">F&B</span>
+            <span class="tag">Runcit</span>
+            <span class="tag">Hospitaliti</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pembalakan - Content Left, Image Right (Top Right) -->
+      <div class="business-item">
+        <div class="business-content-wrapper">
+          <div class="business-category">Industri • Kelestarian</div>
+          <h3>Perniagaan Pembalakan</h3>
+          <p>Operasi pembalakan yang mampan dengan fokus kepada pengurusan hutan yang bertanggungjawab. Kami komited kepada pematuhan piawaian alam sekitar dan kelestarian sumber semula jadi untuk generasi akan datang.</p>
+          <p>Dengan pengalaman bertahun-tahun dalam industri ini, kami memastikan setiap proses pembalakan dilakukan secara profesional dan mematuhi undang-undang serta peraturan yang ditetapkan. Kelestarian adalah keutamaan kami.</p>
+          <div class="business-tags">
+            <span class="tag">Pembalakan Mampan</span>
+            <span class="tag">Pengurusan Hutan</span>
+            <span class="tag">Industri</span>
+            <span class="tag">Kelestarian</span>
+          </div>
+        </div>
+        <div class="business-image-wrapper logging-gradient">
+          <img src="assets/pembalakan.jpg" alt="Pembalakan" onerror="this.style.display='none';">
+          <i class="fas fa-tree business-icon"></i>
+        </div>
+      </div>
+
+      <!-- Pembinaan - Image Left, Content Right (Overlapping) -->
+      <div class="business-item">
+        <div class="business-image-wrapper construction-gradient">
+          <img src="assets/pembinaan.jpg" alt="Pembinaan" onerror="this.style.display='none';">
+          <i class="fas fa-hard-hat business-icon"></i>
+        </div>
+        <div class="business-content-wrapper">
+          <div class="business-category">Pembinaan • Infrastruktur</div>
+          <h3>Perkhidmatan Pembinaan</h3>
+          <p>Kontraktor pembinaan yang berpengalaman dalam projek-projek komersial dan residensi. Kami menyediakan perkhidmatan berkualiti tinggi dengan komitmen kepada kualiti, keselamatan dan ketepatan masa dalam setiap projek yang dijalankan.</p>
+          <p>Dari perancangan hingga penyiapan, pasukan kami yang berpengalaman sentiasa memastikan setiap aspek pembinaan dilaksanakan dengan sempurna. Kepuasan pelanggan dan standard kualiti adalah keutamaan tertinggi kami.</p>
+          <div class="business-tags">
+            <span class="tag">Kontraktor</span>
+            <span class="tag">Komersial</span>
+            <span class="tag">Residensi</span>
+            <span class="tag">Infrastruktur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+  <footer>
+          <div class="wave-container">
+              <div class="wave wave-1"></div>
+              <div class="wave wave-2"></div>
+              <div class="wave wave-3"></div>
+              <div class="wave wave-4"></div>
+              <div class="interference interference-1"></div>
+              <div class="interference interference-2"></div>
+              <div class="interference interference-3"></div>
+          </div>
+          <div class="footer-content-new">
+              <div class="footer-grid">
+                  <!-- Logo & Partners Section -->
+                  <div class="footer-column footer-logo-section">
+                      <div class="footer-logo-row">
+                          <div class="footer-logo-left">
+                              <!-- <h3 class="footer-company-name">Smart Education Society</h3> -->
+                              <img src="assets/SES LOGO RENEW.png" alt="SES Logo" class="footer-main-logo">
+                          </div>
+                          <div class="footer-logo-right">
+                              <p class="footer-tagline">Empowering Education, Building Tomorrow</p>
+                              <div class="partner-logos">
+                                  <!-- Space for 3-4 partner logos -->
+                                  <div class="partner-logo-placeholder"></div>
+                                  <div class="partner-logo-placeholder"></div>
+                                  <div class="partner-logo-placeholder"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Quick Links -->
+                  <div class="footer-column footer-links-column">
+                      <h4>Quick Links</h4>
+                      <div class="footer-list-grid">
+                          <ul class="footer-list">
+                              <li><a href="home.html">Home</a></li>
+                              <li><a href="about.html">About Us</a></li>
+                              <li><a href="education.html">Education</a></li>
+                          </ul>
+                          <ul class="footer-list">
+                              <li><a href="career.html">Career</a></li>
+                              <li><a href="research.html">Research</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <!-- Programs -->
+                  <div class="footer-column footer-programs-column">
+                      <h4>Our Programs</h4>
+                      <ul class="footer-list">
+                          <li><a href="#smtaa">SMTAA</a></li>
+                          <li><a href="#diploma">Diploma</a></li>
+                          <li><a href="#tvet">TVET</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Contact Info -->
+                  <div class="footer-column footer-contact-column ">
+                      <h4>Contact Us</h4>
+                      <div class="footer-contact-row">
+                          <ul class="footer-list footer-contact">
+                              <li><i class="fas fa-phone"></i> +60 11-1855 8600</li>
+                              <li><i class="fas fa-envelope"></i> info@ses.edu.my</li>
+                              <li><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</li>
+                          </ul>
+                          <div class="footer-social-new">
+                              <a href="https://www.facebook.com/profile.php?id=61557535262481" target="_blank" rel="noopener" aria-label="Facebook">
+                                  <i class="fab fa-facebook"></i>
+                              </a>
+                              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                  <i class="fab fa-linkedin"></i>
+                              </a>
+                              <a href="https://www.instagram.com/smtaa.uic/" target="_blank" rel="noopener" aria-label="Instagram">
+                                  <i class="fab fa-instagram"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Copyright Bar -->
+              <div class="footer-bottom">
+                  <p>© 2026 Smart Education Society. All Rights Reserved.</p>
+              </div>
+          </div>
+  </footer>
+
+<!-- Floating Support Widget -->
+<div class="support-widget">
+  <!-- Call Button -->
+  <a href="tel:+601118558600" class="call-icon" id="callIcon">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+  
+  <!-- Support Form Icon -->
+  <div class="support-icon" id="supportIcon">
+    <i class="fas fa-headset"></i>
+  </div>
+  
+  <div class="support-form-container" id="supportFormContainer">
+    <div class="support-form-header">
+      <h3>Ada Pertanyaan?</h3>
+      <span class="support-close" id="supportClose">&times;</span>
+    </div>
+    <form id="supportForm" class="support-form">
+      <div class="support-field">
+        <label for="supportName">Nama</label>
+        <input type="text" id="supportName" required placeholder="Masukkan nama anda">
+      </div>
+      <div class="support-field">
+        <label for="supportPhone">No. Telefon Bimbit</label>
+        <input type="tel" id="supportPhone" required placeholder="01xxxxxxxx">
+      </div>
+      <div class="support-field">
+        <label for="supportEmail">E-mel</label>
+        <input type="email" id="supportEmail" placeholder="email@example.com (optional)">
+      </div>
+      <div class="support-field">
+        <label for="supportQuestion">Soalan / Pertanyaan</label>
+        <textarea id="supportQuestion" rows="4" required placeholder="Tulis soalan anda di sini..."></textarea>
+      </div>
+      <button type="submit" class="support-submit-btn">
+        <i class="fas fa-paper-plane"></i> Hantar
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

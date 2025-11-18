@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  padding-top: 76px;
+  padding-top: 88px;
   background-image: url(assets/SMART\ TAHFIZ\ \(1\).jpg); /* your image file name or URL */
   background-size: cover;       /* make it cover the whole page */
   background-repeat: no-repeat; /* don’t repeat the image */
@@ -709,7 +709,6 @@ body {
 }
 
 .team-member {
-  background: #fff;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
@@ -727,13 +726,13 @@ body {
 }
 
 .team-member h4 {
-  color: #05AFF2;
+  color: white;
   margin-bottom: 5px;
 }
 
 .team-member p {
   font-size: 0.9rem;
-  color: #555;
+  color: white;
 }
 
 .team-member:hover {
@@ -808,9 +807,10 @@ body {
             footer {
                 position: relative;
                 width: 100%;
-                height: 250px;
-                overflow: hidden;
-                background: transparent;
+                min-height: 300px; /* Changed from fixed height to min-height */
+                height: auto; /* Allow footer to expand */
+                overflow: hidden; /* Clip footer at its boundaries */
+                background: black;
             }
 
             .wave-container {
@@ -818,7 +818,8 @@ body {
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 230%;
+                height: 150%;
+                max-height: 500px;
                 pointer-events: none;
             }
 
@@ -998,7 +999,7 @@ body {
                 align-items: center;
                 justify-content: flex-end;
                 height: 100%;
-                padding: 2rem 1rem 1.5rem;
+                padding: 2rem 1rem 1rem;
                 gap: 0.2rem;
             }
 
@@ -1167,6 +1168,369 @@ body {
                 }
             }
           }
+          
+/* New Redesigned Footer */
+.footer-content-new {
+    position: relative;
+    z-index: 10;
+    padding: 1rem 1rem 0rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 250px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Logo Section */
+.footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+}
+
+.footer-logo-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.footer-logo-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-company-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.footer-main-logo {
+    width: 100px;
+    height: 135px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-titleline {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.partner-logos {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.partner-logo-placeholder {
+    width: 60px;
+    height: 60px;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+
+.partner-logo-placeholder:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer Columns */
+.footer-column h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+    margin-top: 0;
+    color: white;
+}
+
+.footer-links-column h4 {
+    margin-top: 1.3rem;
+}
+.footer-programs-column h4 {  
+    margin-top: 1.3rem;
+}
+.footer-contact-wrapper h4 {
+  margin-top: 1.8rem;
+}
+
+/* Nudge contact column down visually so content sits below the wave
+   using transform (does not change layout height) */
+.footer-contact-column {
+  transform: translateY(18px);
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;  
+}
+
+.footer-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+}
+
+.footer-list li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-list a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+}
+
+.footer-list a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+/* Contact Info */
+.footer-contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.3rem;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer-contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.footer-contact i {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Social Media */
+.footer-contact-column {
+  position: relative;
+}
+
+.footer-social-new {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+  position: static;
+}
+
+.footer-social-new a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social-new a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 0 0 0.3rem 0;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content-new {
+        padding: 2rem 1.5rem 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-logo-section {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .partner-logos {
+        justify-content: center;
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+    
+    .footer-list a {
+        justify-content: center;
+    }
+    
+    .footer-contact-wrapper {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-contact-row {
+        align-items: center;
+    }
+    
+    .footer-contact li {
+        justify-content: center;
+    }
+    
+    .footer-social-new {
+        justify-content: center;
+    }
+}
+
+  /* Mobile-specific adjustments so footer is fully visible on small screens */
+  @media (max-width: 480px) {
+    footer {
+      height: auto !important;
+      min-height: 300px !important;
+      overflow: visible !important;
+      padding-bottom: 1rem;
+    }
+
+    .wave-container {
+      height: 140% !important; /* reduce wave extension so it doesn't cover content */
+    }
+
+    .footer-content-new {
+      min-height: auto !important;
+      padding: 1.25rem 1rem 1.5rem !important;
+      justify-content: flex-start !important;
+    }
+
+    /* Stack footer columns vertically on narrow screens so nothing is clipped */
+    .footer-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+
+    /* Disable transform/absolute positioning that hid content on small screens */
+    .footer-contact-column {
+      transform: none !important;
+      position: static !important;
+      padding-top: 0.6rem !important;
+    }
+
+    .footer-social-new {
+      position: static !important;
+      flex-direction: row !important;
+      gap: 0.6rem !important;
+      margin-left: 0 !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 1rem !important;
+    }
+
+    .footer-logo-row {
+      align-items: center !important;
+      gap: 1rem !important;
+      flex-direction: column !important;
+    }
+
+    .footer-logo-left, .footer-logo-right {
+      align-items: center !important;
+    }
+
+    /* .footer-logo-title {
+      margin: 0.4rem 0 0.6rem 0 !important;
+      font-size: 0.5rem !important;
+      text-align: center !important;
+    } */
+
+    .footer-tagline {
+      margin: 0.4rem 0 0.6rem 0 !important;
+      text-align: center !important;
+    }
+
+    .footer-bottom {
+      padding: 0.6rem 0 0 0 !important;
+      margin-top: 0.4rem !important;
+    }
+
+    .footer-list-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.5rem !important;
+    }
+
+    .footer-contact-row {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      align-items: flex-start !important;
+    }
+  }
           
 /* Navigation Bar */
 .navbar {
@@ -3299,7 +3663,6 @@ input[type="checkbox"] {
 /* 3D Team Carousel Section */
     .team-section {
       padding: 4rem 0;
-      background: white;
     }
 
     .team-section .container {
@@ -3311,7 +3674,7 @@ input[type="checkbox"] {
     .about-title {
       font-size: 2.5rem;
       font-weight: 600;
-      color: #082a7b;
+      color: white;
       text-align: center;
       margin-bottom: 3rem;
       /* Match the same font-family as the 'Who We Are' h2 by inheriting the page font */
@@ -3418,7 +3781,7 @@ input[type="checkbox"] {
     }
 
     .member-name {
-      color: rgb(8, 42, 123);
+      color: white;
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 10px;
@@ -3434,7 +3797,7 @@ input[type="checkbox"] {
       top: 100%;
       width: 100px;
       height: 2px;
-      background: rgb(8, 42, 123);
+      background: white;
     }
 
     .member-name::before {
@@ -3446,7 +3809,7 @@ input[type="checkbox"] {
     }
 
     .member-role {
-      color: #848696;
+      color: white;
       font-size: 1.5rem;
       font-weight: 500;
       opacity: 0.8;
