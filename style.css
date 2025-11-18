@@ -203,12 +203,20 @@ body {
       box-sizing: border-box;
     }
 
+    html {
+      overflow-x: hidden;
+      max-width: 100vw;
+      overscroll-behavior-x: none;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       /* allow vertical scrolling on all pages; hide horizontal overflow */
       overflow-x: hidden;
       overflow-y: auto;
       min-height: 100vh;
+      max-width: 100vw;
+      position: relative;
     }
 
     /* Loading Spinner */
