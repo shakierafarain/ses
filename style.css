@@ -1702,8 +1702,21 @@ body {
 
 /* Education Choices Section */
 .education-choices-section {
-  padding: 7px 20px 30px;
+  padding: 7px 20px 80px;
   background: transparent;
+  position: relative;
+}
+
+.education-choices-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, #000000 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .education-choices-container {
@@ -2049,8 +2062,7 @@ body {
   }
   
   #education-carousel-nav .carousel-nav {
-    width: 40px;
-    height: 40px;
+    display: none;
   }
 }
 
@@ -2532,7 +2544,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 15px 15px 15px 15px;
-  background: #17426d;
+  background: #290938;
   color: #fff;
   position: fixed;
   top: 0;
