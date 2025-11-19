@@ -668,6 +668,25 @@ body {
 /* Add extra spacing between the About section and Vision/Mission on all sizes */
 .vision-mission {
   margin-top: 40px; /* increases space between 'Who We Are' and the cards */
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.vision-mission::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, #000000 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vision-mission .container {
+  position: relative;
+  z-index: 1;
 }
 
 .vision-card, .mission-card {
@@ -3779,7 +3798,7 @@ input[type="checkbox"] {
     .carousel-container {
       width: 100%;
       max-width: 1200px;
-      height: 450px;
+      height: 520px;
       position: relative;
       perspective: 1000px;
       margin: 2rem auto;
@@ -3798,8 +3817,8 @@ input[type="checkbox"] {
 
     .card {
       position: absolute;
-      width: 280px;
-      height: 380px;
+      width: 350px;
+      height: 450px;
       background: white;
       border-radius: 20px;
       overflow: hidden;
@@ -3826,7 +3845,7 @@ input[type="checkbox"] {
 
     .card.left-2 {
       z-index: 1;
-      transform: translateX(-400px) scale(0.8) translateZ(-300px);
+      transform: translateX(-650px) scale(0.8) translateZ(-300px);
       opacity: 0.7;
     }
 
@@ -3836,7 +3855,7 @@ input[type="checkbox"] {
 
     .card.left-1 {
       z-index: 5;
-      transform: translateX(-200px) scale(0.9) translateZ(-100px);
+      transform: translateX(-250px) scale(0.9) translateZ(-100px);
       opacity: 0.9;
     }
 
@@ -3846,7 +3865,7 @@ input[type="checkbox"] {
 
     .card.right-1 {
       z-index: 5;
-      transform: translateX(200px) scale(0.9) translateZ(-100px);
+      transform: translateX(250px) scale(0.9) translateZ(-100px);
       opacity: 0.9;
     }
 
@@ -3856,7 +3875,7 @@ input[type="checkbox"] {
 
     .card.right-2 {
       z-index: 1;
-      transform: translateX(400px) scale(0.8) translateZ(-300px);
+      transform: translateX(650px) scale(0.8) translateZ(-300px);
       opacity: 0.7;
     }
 
@@ -3974,24 +3993,24 @@ input[type="checkbox"] {
     }
 
     .card {
-        width: 200px;
-        height: 280px;
+        width: 350px;
+        height: 450px;
       }
 
       .card.left-2 {
-        transform: translateX(-250px) scale(0.8) translateZ(-300px);
+        transform: translateX(-350px) scale(0.8) translateZ(-300px);
       }
 
       .card.left-1 {
-        transform: translateX(-120px) scale(0.9) translateZ(-100px);
+        transform: translateX(-170px) scale(0.9) translateZ(-100px);
       }
 
       .card.right-1 {
-        transform: translateX(120px) scale(0.9) translateZ(-100px);
+        transform: translateX(170px) scale(0.9) translateZ(-100px);
       }
 
       .card.right-2 {
-        transform: translateX(250px) scale(0.8) translateZ(-300px);
+        transform: translateX(350px) scale(0.8) translateZ(-300px);
       }
 
       .member-name {
@@ -4014,6 +4033,26 @@ input[type="checkbox"] {
       .member-name::after {
         right: -70px;
       }
+
+/* Mobile responsive styles for carousel */
+    @media only screen and (max-width: 768px) {
+      .card {
+        width: 280px !important;
+        height: 380px !important;
+      }
+      
+      .carousel-container {
+        height: 450px !important;
+      }
+      
+      .card.left-2 {
+        transform: translateX(-350px) scale(0.8) translateZ(-300px) !important;
+      }
+      
+      .card.right-2 {
+        transform: translateX(350px) scale(0.8) translateZ(-300px) !important;
+      }
+    }
 
 /* Responsive */
     @media only screen and (max-width: 968px) {
