@@ -1227,6 +1227,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 0.7rem;
+    padding-top: 3rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1288,21 +1289,25 @@ body {
     gap: 1rem;
     margin-top: 0.3rem;
     flex-wrap: wrap;
+    
 }
 
 .partner-logo-placeholder {
     width: 60px;
     height: 60px;
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    border: none;
+    border-radius: 50%;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .partner-logo-placeholder:hover {
-    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer Columns */
@@ -1844,13 +1849,16 @@ body {
 .card-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #2d5c4a, #4a9eff);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 25px;
   transition: all 0.4s ease;
+}
+
+.card-icon.with-bg {
+  background: linear-gradient(135deg, #2d5c4a, #4a9eff);
+  border-radius: 50%;
 }
 
 .education-card:hover .card-icon {
