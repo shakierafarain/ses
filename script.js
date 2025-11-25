@@ -597,16 +597,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (offset === 0) {
         card.classList.add('center');
+        const v = card.querySelector('video');
+        if (v) {
+          v.muted = true; // allow autoplay on mobile
+          v.loop = true;
+          // playsinline attribute is reflected as playsInline property
+          try { v.playsInline = true; } catch(_) {}
+          try { v.play(); } catch(_) {}
+        }
       } else if (offset === 1) {
         card.classList.add('right-1');
+        const v = card.querySelector('video');
+        if (v) { v.pause(); }
       } else if (offset === 2) {
         card.classList.add('right-2');
+        const v = card.querySelector('video');
+        if (v) { v.pause(); }
       } else if (offset === cards.length - 1) {
         card.classList.add('left-1');
+        const v = card.querySelector('video');
+        if (v) { v.pause(); }
       } else if (offset === cards.length - 2) {
         card.classList.add('left-2');
+        const v = card.querySelector('video');
+        if (v) { v.pause(); }
       } else {
         card.classList.add('hidden');
+        const v = card.querySelector('video');
+        if (v) { v.pause(); }
       }
     });
 
@@ -978,3 +996,199 @@ document.addEventListener('DOMContentLoaded', () => {
         this.style.transition = 'all 300ms cubic-bezier(0.77, 0, 0.175, 1)';
       });
     });
+
+gsap.registerPlugin(ScrollTrigger);
+
+    const sections = gsap.utils.toArray('.section-panel');
+    const indicators = document.querySelectorAll('.indicator-dot');
+
+    // Horizontal scroll animation for all devices - manual scroll control
+    const horizontalTween = gsap.to('.horizontal-container', {
+      xPercent: -200, // Move left by 200% to show all 3 sections
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.horizontal-scroll-wrapper',
+        pin: true,
+        scrub: 1, // Manual scroll control - follows user scroll exactly
+        end: () => '+=' + (window.innerHeight * 2), // Distance to reach last section
+        onUpdate: (self) => {
+          // When we reach 90% progress, freeze at last section
+          if (self.progress >= 0.9) {
+            horizontalTween.progress(1); // Lock horizontal position at last section
+          }
+        }
+      }
+    });
+
+    // Create separate trigger for footer transition after horizontal scroll
+    ScrollTrigger.create({
+      trigger: '.horizontal-scroll-wrapper',
+      start: () => 'bottom+=' + (window.innerHeight * 0.5) + ' bottom',
+      end: () => 'bottom+=' + (window.innerHeight * 1.5) + ' bottom',
+      pin: false,
+      scrub: false,
+      onEnter: () => {
+        console.log('Ready for footer transition');
+        // Keep last section active
+        sections.forEach(s => s.classList.remove('active'));
+        if (sections[2]) {
+          sections[2].classList.add('active');
+          updateIndicator(2);
+        }
+      }
+    });
+
+    // Update indicators and section activation with proper timing
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: '.horizontal-scroll-wrapper',
+        start: () => (i * 30) + '% top', // Adjusted timing for 3 sections
+        end: () => i === sections.length - 1 ? '100% top' : ((i + 1) * 30 + 5) + '% top', // Last section stays active
+        onEnter: () => {
+          console.log(`Entering section ${i}`);
+          updateIndicator(i);
+          // Remove active from all sections first
+          sections.forEach(s => s.classList.remove('active'));
+          // Then add active to current section
+          section.classList.add('active');
+        },
+        onEnterBack: () => {
+          console.log(`Entering back section ${i}`);
+          updateIndicator(i);
+          sections.forEach(s => s.classList.remove('active'));
+          section.classList.add('active');
+        }
+      });
+    });    function updateIndicator(index) {
+      indicators.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    // Click indicators to scroll
+    indicators.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const scrollAmount = index * window.innerHeight * 0.8;
+        window.scrollTo({
+          top: scrollAmount,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Ensure first section is active on load
+    if (sections.length > 0) {
+      sections[0].classList.add('active');
+      updateIndicator(0);
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
+
+    // Ensure footer appears only after the last section (Pembalakan) is fully shown
+    ScrollTrigger.create({
+      trigger: '.horizontal-scroll-wrapper',
+      start: '95% top', // Very late trigger to ensure all content is seen
+      end: 'bottom top',
+      onEnter: () => {
+        console.log('Showing footer');
+        const footer = document.querySelector('footer');
+        if (footer) {
+          footer.style.display = 'block';
+          footer.style.position = 'relative';
+          footer.style.zIndex = '1';
+        }
+      },
+      onLeaveBack: () => {
+        const footer = document.querySelector('footer');
+        if (footer && window.innerWidth > 768) {
+          footer.style.position = 'absolute';
+          footer.style.zIndex = '-1';
+        }
+      }
+    });
+
+// Portfolio Split Background Animation
+if (document.querySelector('.bglinear')) {
+  // Resolve brand purple from CSS variable to guarantee a single shade everywhere
+  const BRAND_PURPLE = (getComputedStyle(document.documentElement).getPropertyValue('--brand-purple') || '').trim() || '#5a3c83';
+  // Transition from page1 to page2 - rotate to 270deg during transition
+  gsap.to(".bglinear", {
+    scrollTrigger: {
+      trigger: ".page2",
+      scrub: true,
+      start: "10% bottom",
+      end: "50% 50%"
+    },
+    backgroundImage: `linear-gradient(270deg, #fff 50%, ${BRAND_PURPLE} 50%)`,
+    duration: 3
+  });
+
+  // Page2 settled - back to 90deg but with criss-cross colors (purple left, white right)
+  gsap.to(".bglinear", {
+    scrollTrigger: {
+      trigger: ".page2",
+      scrub: true,
+      start: "50% 50%",
+      end: "80% 80%"
+    },
+    backgroundImage: `linear-gradient(90deg, ${BRAND_PURPLE} 50%, #fff 50%)`,
+    duration: 3
+  });
+
+  // Transition from page2 to page3 - rotate to 270deg during transition
+  gsap.to(".bglinear", {
+    scrollTrigger: {
+      trigger: ".page3",
+      scrub: true,
+      start: "10% bottom", 
+      end: "50% 50%"
+    },
+    backgroundImage: `linear-gradient(270deg, ${BRAND_PURPLE} 50%, #fff 50%)`,
+    duration: 3
+  });
+
+  // Page3 settled - back to 90deg with same colors as page1 (white left, purple right)
+  gsap.to(".bglinear", {
+    scrollTrigger: {
+      trigger: ".page3",
+      scrub: true,
+      start: "50% 50%", 
+      end: "80% 80%"
+    },
+    backgroundImage: `linear-gradient(90deg, #fff 50%, ${BRAND_PURPLE} 50%)`,
+    duration: 3
+  });
+
+  // Footer transition
+  gsap.to(".bglinear", {
+    scrollTrigger: {
+      trigger: "#footer",
+      scrub: true,
+      start: "10% bottom", 
+      end: "50% bottom"
+    },
+    backgroundImage: `linear-gradient(90deg, #fff 50%, ${BRAND_PURPLE} 50%)`,
+    duration: 3
+  });
+
+  // Add smooth scroll behavior for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
