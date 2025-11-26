@@ -1331,35 +1331,108 @@ ScrollTrigger.matchMedia({
     });
   },
   "(max-width: 768px)": function () {
-    const mbTimeline = gsap.timeline();
-    gsap.set(imgs, {
-      objectPosition: "0px 60%"
-    });
+    // Mobile: simpler & more interesting crossfade behavior tied to the left description
+    const wrappers = gsap.utils.toArray(".arch__right .img-wrapper");
+    const leftItems = gsap.utils.toArray(".arch__left .arch__info");
 
-    imgs.forEach((image, index) => {
-      const innerTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: image,
-          start: "top-=70% top+=50%",
-          end: "bottom+=200% bottom",
-          scrub: true
+    // Ensure images are sized correctly for mobile and set initial visibility
+    gsap.set(wrappers, { autoAlpha: 0 });
+    if (wrappers[0]) gsap.set(wrappers[0], { autoAlpha: 1 });
+
+    // When each description scrolls into center, fade the corresponding image in
+    leftItems.forEach((left, i) => {
+      const imageWrapper = wrappers[i];
+      if (!imageWrapper) return;
+
+      ScrollTrigger.create({
+        trigger: left,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          gsap.to(wrappers, { autoAlpha: 0, duration: 0.25 });
+          gsap.to(imageWrapper, { autoAlpha: 1, duration: 0.4, ease: "power2.out" });
+          gsap.to("body", { backgroundColor: bgColors[i] || null, duration: 0.6, ease: "power2.inOut" });
+        },
+        onEnterBack: () => {
+          gsap.to(wrappers, { autoAlpha: 0, duration: 0.25 });
+          gsap.to(imageWrapper, { autoAlpha: 1, duration: 0.4, ease: "power2.out" });
+          gsap.to("body", { backgroundColor: bgColors[i] || null, duration: 0.6, ease: "power2.inOut" });
         }
       });
-
-      innerTimeline
-        .to(image, {
-          objectPosition: "0px 30%",
-          duration: 5,
-          ease: "none"
-        })
-        .to("body", {
-          backgroundColor: bgColors[index],
-          duration: 1.5,
-          ease: "power2.inOut"
-        });
-
-      mbTimeline.add(innerTimeline);
     });
   }
 });
+
+// CEO Images Scroll Animation (for About Page - Profil Pengarah section)
+const ceoImageLeft = document.querySelector('.ceo-image-left');
+const ceoImageRight = document.querySelector('.ceo-image-right');
+const profilSection = document.querySelector('.profil-pengarah-section');
+
+if (ceoImageLeft && ceoImageRight && profilSection) {
+  // Create ScrollTrigger for CEO images
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".profil-pengarah-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: 1,
+      onEnter: () => {
+        gsap.to(ceoImageLeft, {
+          left: "20px",
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out"
+        });
+        gsap.to(ceoImageRight, {
+          right: "20px",
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out"
+        });
+      },
+      onLeave: () => {
+        gsap.to(ceoImageLeft, {
+          left: "-250px",
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+        gsap.to(ceoImageRight, {
+          right: "-250px",
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(ceoImageLeft, {
+          left: "20px",
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out"
+        });
+        gsap.to(ceoImageRight, {
+          right: "20px",
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out"
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(ceoImageLeft, {
+          left: "-250px",
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+        gsap.to(ceoImageRight, {
+          right: "-250px",
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+      }
+    }
+  });
+}
 
