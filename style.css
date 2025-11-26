@@ -5023,15 +5023,15 @@ input[type="checkbox"] {
 }
 
 .page1 .description {
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 .page2 .description {
-  color: rgba(0, 0, 0, 0.9);
+  color: white;
 }
 
 .page3 .description {
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 /* Navigation Arrows */
@@ -5259,15 +5259,15 @@ input[type="checkbox"] {
 }
 
 .page1 .description {
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 .page2 .description {
-  color: rgba(0, 0, 0, 0.9);
+  color: white;
 }
 
 .page3 .description {
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 /* Navigation Arrows */
@@ -5433,17 +5433,18 @@ input[type="checkbox"] {
   font-size: 48px;
   font-weight: 800; 
   letter-spacing: -0.96px;
-  color: #121212;
+  color: white;
   line-height: 1.1;
   margin-bottom: 24px; /* Added proper spacing */
 }
 
 .arch__info p.desc {
-  color: rgba(18, 18, 18, 0.8);
-  font-size: 18px;
+  color: white;
+  font-size: 22px;
   letter-spacing: -0.36px;
   margin-bottom: 32px;
   line-height: 1.5;
+  text-align: justify;
 }
 
 .arch__info a.link {
