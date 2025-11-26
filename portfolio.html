@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,7 +18,7 @@
   <nav>
     <div class="logo">
       <a href="index.html">
-        <img src="assets/SES LOGO RENEW 4.png" alt="SMTAA Logo">
+        <img src="assets/ses logo white.png" alt="SES Logo">
         
       </a>
     </div>
@@ -47,143 +51,71 @@
     </div>
   </header>
 
-  <!-- Director Profile -->
-  <section id="about">
-    <div class="profile-wrapper">
-      <div class="section-title">
-        <h3>Profil Pengarah</h3>
-        <div class="separator"></div>
-        <p class="subtitle">Kepimpinan yang Berpengalaman dan Berdedikasi</p>
+  <!-- Portfolio Arch Container -->
+  <div class="container">
+    <div class="spacer"></div>
+
+    <div class="arch">
+      <div class="arch__left">
+        <div class="arch__info" id="owner-arch">
+          <div class="content">
+            <h2 class="header">Profil Pengarah</h2>
+            <p class="desc">Seorang usahawan berpengalaman dengan kepakaran dalam pelbagai bidang perniagaan. Dengan visi yang jelas dan komitmen yang tinggi, beliau telah membangunkan beberapa perniagaan yang berjaya dan mampan di Malaysia.</p>
+            <a class="link" href="#" style="background-color: #D5FF37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+              </svg> <span>Learn More</span></a>
+          </div>
+        </div>
+
+        <div class="arch__info" id="kopi-arch">
+          <div class="content">
+            <h2 class="header">Kopi Saigon</h2>
+            <p class="desc">Kedai kopi yang menawarkan pengalaman kopi premium dengan cita rasa istimewa. Menggabungkan warisan kopi Vietnam dengan sentuhan tempatan untuk memberikan pengalaman yang unik dan berkesan kepada setiap pelanggan.</p>
+            <a class="link" href="#" style="background-color: #7DD6FF">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+              </svg> <span>Learn More</span></a>
+          </div>
+        </div>
+
+        <div class="arch__info" id="logging-arch">
+          <div class="content">
+            <h2 class="header">Perniagaan Pembalakan</h2>
+            <p class="desc">Operasi pembalakan yang mampan dengan fokus kepada pengurusan hutan yang bertanggungjawab. Kami komited kepada pematuhan piawaian alam sekitar dan kelestarian sumber semula jadi untuk generasi akan datang.</p>
+            <a class="link" href="#" style="background-color: #FFA0B0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+              </svg> <span>Learn More</span></a>
+          </div>
+        </div>
       </div>
 
-      <div class="profile-grid">
-        <div class="profile-image-container">
-          <!-- Replace this placeholder with actual director image -->
-          <img src="assets/mugshot.png" alt="Director Photo" class="profile-image" 
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display: none; width: 300px; height: 300px; border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); align-items: center; justify-content: center; color: white; font-size: 80px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
-            <i class="fas fa-user-tie"></i>
-          </div>
+      <div class="arch__right">
+        <div class="img-wrapper" data-index="3">
+          <img src="assets/ceo.png" alt="Director Profile" onerror="this.src='https://via.placeholder.com/540x400/667eea/ffffff?text=Owner'">
         </div>
-        <div class="profile-info">
-          <h2>Nama Pengarah</h2>
-          <div class="profile-title">Pengarah Urusan | Usahawan Berjaya</div>
-          <div class="profile-bio">
-            <p>Seorang usahawan berpengalaman dengan kepakaran dalam pelbagai bidang perniagaan. Dengan visi yang jelas dan komitmen yang tinggi, beliau telah membangunkan beberapa perniagaan yang berjaya dan mampan.</p>
-            <p>Dedikasi beliau dalam memberi impak positif kepada masyarakat dan membangunkan institusi pendidikan berkualiti tinggi menjadi tunjang kepada semua usaha perniagaan yang dijalankan.</p>
-          </div>
+
+        <div class="img-wrapper" data-index="2">
+          <img src="assets/kopisaigon.jpg" alt="Kopi Saigon" onerror="this.src='https://via.placeholder.com/540x400/4facfe/ffffff?text=Kopi+Saigon'">
         </div>
-      </div>
 
-      <!-- Experience Section -->
-      <div class="experience-container">
-        <div class="section-title">
-          <h3>Pengalaman Profesional</h3>
-          <div class="separator"></div>
+        <div class="img-wrapper" data-index="1">
+          <img src="assets/balak.PNG" alt="Logging Business" onerror="this.src='https://via.placeholder.com/540x400/43e97b/ffffff?text=Logging'">
         </div>
-        
-        <div class="experience-grid">
-          <div class="experience-card">
-            <h4>Pengarah - SMTAA</h4>
-            <div class="year">2020 - Kini</div>
-            <p>Menguruskan operasi dan pembangunan Smart Maahad Tahfiz Al-Attas, menyediakan pendidikan Islam berkualiti tinggi yang menggabungkan pembelajaran tahfiz dengan kurikulum moden.</p>
-          </div>
 
-          <div class="experience-card">
-            <h4>Pengasas - Kopi Saigon</h4>
-            <div class="year">2018 - Kini</div>
-            <p>Membangunkan jenama kopi tempatan yang menggabungkan cita rasa tradisional Vietnam dengan konsep moden, menawarkan pengalaman kopi premium kepada pelanggan.</p>
-          </div>
-
-          <div class="experience-card">
-            <h4>Usahawan - Industri Pembalakan</h4>
-            <div class="year">2015 - Kini</div>
-            <p>Menguruskan operasi pembalakan yang mematuhi piawaian kelestarian alam sekitar dan bertanggungjawab terhadap pengurusan hutan.</p>
-          </div>
-
-          <div class="experience-card">
-            <h4>Kontraktor - Industri Pembinaan</h4>
-            <div class="year">2012 - Kini</div>
-            <p>Menyediakan perkhidmatan pembinaan berkualiti untuk projek-projek pembangunan komersial dan residensi dengan komitmen kepada kualiti dan ketepatan masa.</p>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Business Portfolio -->
-  <section id="projects">
-    <div class="section-title">
-      <h3>Portfolio Perniagaan</h3>
-      <div class="separator"></div>
-      <p class="subtitle">Pelbagai bidang perniagaan yang diuruskan dengan profesional dan berdedikasi</p>
-    </div>
-    
-    <div class="business-container">
-      <!-- Kopi Saigon - Image Left, Content Right -->
-      <div class="business-item">
-        <div class="business-image-wrapper coffee-gradient">
-          <img src="assets/kopi-saigon.jpg" alt="Kopi Saigon" onerror="this.style.display='none';">
-          <i class="fas fa-coffee business-icon"></i>
-        </div>
-        <div class="business-content-wrapper">
-          <div class="business-category">F&B • Kopi Premium</div>
-          <h3>Kopi Saigon</h3>
-          <p>Kedai kopi yang menawarkan pengalaman kopi premium dengan cita rasa istimewa. Menggabungkan warisan kopi Vietnam dengan sentuhan tempatan untuk memberikan pengalaman yang unik dan berkesan kepada setiap pelanggan.</p>
-          <p>Kopi Saigon bukan sekadar tempat minum kopi, tetapi destinasi untuk menikmati kehangatan suasana dan kualiti minuman yang terbaik. Setiap cawan disediakan dengan teliti menggunakan biji kopi pilihan dan teknik penyediaan tradisional.</p>
-          <div class="business-tags">
-            <span class="tag">Kopi Premium</span>
-            <span class="tag">F&B</span>
-            <span class="tag">Runcit</span>
-            <span class="tag">Hospitaliti</span>
-          </div>
-        </div>
-      </div>
+    <div class="spacer"></div>
 
-      <!-- Pembalakan - Content Left, Image Right (Top Right) -->
-      <div class="business-item">
-        <div class="business-content-wrapper">
-          <div class="business-category">Industri • Kelestarian</div>
-          <h3>Perniagaan Pembalakan</h3>
-          <p>Operasi pembalakan yang mampan dengan fokus kepada pengurusan hutan yang bertanggungjawab. Kami komited kepada pematuhan piawaian alam sekitar dan kelestarian sumber semula jadi untuk generasi akan datang.</p>
-          <p>Dengan pengalaman bertahun-tahun dalam industri ini, kami memastikan setiap proses pembalakan dilakukan secara profesional dan mematuhi undang-undang serta peraturan yang ditetapkan. Kelestarian adalah keutamaan kami.</p>
-          <div class="business-tags">
-            <span class="tag">Pembalakan Mampan</span>
-            <span class="tag">Pengurusan Hutan</span>
-            <span class="tag">Industri</span>
-            <span class="tag">Kelestarian</span>
-          </div>
-        </div>
-        <div class="business-image-wrapper logging-gradient">
-          <img src="assets/balak-removebg-preview.png" alt="Pembalakan" onerror="this.style.display='none';">
-          <i class="fas fa-tree business-icon"></i>
-        </div>
-      </div>
+  </div>
 
-      <!-- Pembinaan - Image Left, Content Right (Overlapping) -->
-      <div class="business-item">
-        <div class="business-image-wrapper construction-gradient">
-          <img src="assets/pembinaan.jpg" alt="Pembinaan" onerror="this.style.display='none';">
-          <i class="fas fa-hard-hat business-icon"></i>
-        </div>
-        <div class="business-content-wrapper">
-          <div class="business-category">Pembinaan • Infrastruktur</div>
-          <h3>Perkhidmatan Pembinaan</h3>
-          <p>Kontraktor pembinaan yang berpengalaman dalam projek-projek komersial dan residensi. Kami menyediakan perkhidmatan berkualiti tinggi dengan komitmen kepada kualiti, keselamatan dan ketepatan masa dalam setiap projek yang dijalankan.</p>
-          <p>Dari perancangan hingga penyiapan, pasukan kami yang berpengalaman sentiasa memastikan setiap aspek pembinaan dilaksanakan dengan sempurna. Kepuasan pelanggan dan standard kualiti adalah keutamaan tertinggi kami.</p>
-          <div class="business-tags">
-            <span class="tag">Kontraktor</span>
-            <span class="tag">Komersial</span>
-            <span class="tag">Residensi</span>
-            <span class="tag">Infrastruktur</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Fade to Black Gradient Overlay -->
+  <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
 
   <!-- Footer -->
-  <footer>
+  <footer id="footer">
     <div class="wave-container">
         <div class="wave wave-1"></div>
         <div class="wave wave-2"></div>
@@ -251,7 +183,7 @@
             <ul class="footer-list footer-contact">
               <li><i class="fas fa-phone"></i> +60 11-1855 8600</li>
               <li><i class="fas fa-envelope"></i> info@ses.edu.my</li>
-              <li><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</li>
+              <li><i class="fas fa-map-marker-alt"></i> Negeri Sembilan, Malaysia</li>
             </ul>
             <div class="footer-social-new">
                 <a href="https://www.facebook.com/profile.php?id=61557535262481" target="_blank" rel="noopener" aria-label="Facebook">
