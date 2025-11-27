@@ -27,9 +27,15 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="education.html" class="active">Education</a></li>
+      <li class="dropdown">
+        <a href="business.html" class="active dropdown-toggle">
+          Business <span class="dropdown-arrow">▼</span>
+        </a>
+        <div class="dropdown-content">
+          <a href="education.html">Education</a>
+        </div>
+      </li>
       <li><a href="career.html">Career</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
       <li>
         <form id="searchForm" class="search-bar">
           <input type="text" id="searchInput" placeholder="Cari...">

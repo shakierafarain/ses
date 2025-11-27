@@ -45,6 +45,7 @@
     <div class="logo">
       <a href="index.html">
         <img src="assets/ses logo white.png" alt="SES Logo">
+        
       </a>
     </div>
 
@@ -56,9 +57,15 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="education.html">Education</a></li>
+      <li class="dropdown">
+        <a href="business.html" class="dropdown-toggle">
+          Business <span class="dropdown-arrow">▼</span>
+        </a>
+        <div class="dropdown-content">
+          <a href="education.html">Education</a>
+        </div>
+      </li>
       <li><a href="career.html">Career</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
       <li>
         <form id="searchForm" class="search-bar">
           <input type="text" id="searchInput" placeholder="Cari...">
@@ -83,14 +90,14 @@
       </div>
     </div>
 
-    <!-- Education Panel -->
-    <div class="flex-slide education">
+    <!-- Business Panel -->
+    <div class="flex-slide research">
       <div class="flex-content">
-        <i class="fas fa-graduation-cap icon-large"></i>
-        <div class="flex-title">Education</div>
+        <i class="fas fa-folder-open icon-large"></i>
+        <div class="flex-title">Business</div>
         <div class="flex-about">
-          <p>Explore our comprehensive educational programs designed for excellence</p>
-          <a href="education.html" class="cta-button">View Programs</a>
+          <p>Advancing education through innovative research and development</p>
+          <a href="business.html" class="cta-button">Explore Business</a>
         </div>
       </div>
     </div>
@@ -103,18 +110,6 @@
         <div class="flex-about">
           <p>Join our team and make a difference in shaping future generations</p>
           <a href="career.html" class="cta-button">Join Us</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Research Panel -->
-    <div class="flex-slide research">
-      <div class="flex-content">
-        <i class="fas fa-folder-open icon-large"></i>
-        <div class="flex-title">Portfolio</div>
-        <div class="flex-about">
-          <p>Advancing education through innovative research and development</p>
-          <a href="portfolio.html" class="cta-button">Explore Portfolio</a>
         </div>
       </div>
     </div>
