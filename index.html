@@ -8,6 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  
+  <!-- Additional styles and scripts for perspective effect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css'>
 </head>
 <body>
 
@@ -85,50 +91,92 @@
     </ul>
   </nav>
 
-  <!-- Flex Container -->
-  <div class="flex-container">
-
-    <!-- About Panel -->
-    <div class="flex-slide about">
-      <div class="flex-content">
-        <i class="fas fa-info-circle icon-large"></i>
-        <div class="flex-title">About</div>
-        <div class="flex-about">
-          <p>Discover our mission to provide quality education and nurture tomorrow's leaders</p>
-          <a href="about.html" class="cta-button">Learn More</a>
-        </div>
+  <!-- Main Content Wrapper for ScrollSmoother -->
+  <main>
+    <!-- Perspective Zoom Effect Section (Replaces Flex Container) -->
+    <div class="zoom-container">
+      <h1 class="heading">SMART EDUCATION<br />SOCIETY</h1>
+      
+      <!-- Scroll Down Indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll Down</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+      <div class="zoom-item" data-layer="2">
+        <img src="assets/educationn.png" alt="Education">
+      </div>
+      <div class="zoom-item" data-layer="2">
+        <img src="assets/uitm.png" alt="UiTM" />
+      </div>
+      <div class="zoom-item" data-layer="1">
+        <img src="assets/um.png" alt="UM" />
+      </div>
+      <div class="zoom-item" data-layer="2">
+        <img src="assets/utm.png" alt="UTM" />
+      </div>
+      <div class="zoom-item" data-layer="3">
+        <img src="assets/upkb.png" alt="UPKB" />
+      </div>
+      <div class="zoom-item" data-layer="1">
+        <img src="assets/uic.png" alt="UIC" />
+      </div>
+      <div class="zoom-item" data-layer="3">
+        <img src="assets/ses logo white.png" alt="SES Logo" />
+      </div>
+      <div class="zoom-item" data-layer="3">
+        <img src="assets/portfolio.png" alt="Portfolio" />
+      </div>
+      <div class="zoom-item" data-layer="1">
+        <img src="assets/career.png" alt="Career" />
+      </div>
+      <div class="zoom-item" data-layer="3">
+        <img src="assets/about3.jpg" alt="About" />
+      </div>
+      <div class="zoom-item" data-layer="2">
+        <img src="assets/SMART TAHFIZ (1).jpg" alt="Smart Tahfiz" />
+      </div>
+      <div class="zoom-item" data-layer="1">
+        <img src="assets/logo smtaa rbg.png" alt="SMTAA" />
       </div>
     </div>
 
-    <!-- Business Panel -->
-    <div class="flex-slide research">
-      <div class="flex-content">
-        <i class="fas fa-folder-open icon-large"></i>
-        <div class="flex-title">Business</div>
-        <div class="flex-about">
-          <p>Advancing education through innovative research and development</p>
-          <a href="business.html" class="cta-button">Explore Business</a>
-        </div>
+    <section class="section-stick" style="min-height: 100vh; background: black; display: flex; justify-content: center; align-items: center; color: white;">
+      <p class="opacity-reveal" style="font-size: clamp(2rem, 5vw, 4rem); text-align: center; width: 80%; max-width: 900px; line-height: 1.4;">Empowering minds, transforming futures,<br>building tomorrow's leaders today</p>
+    </section>
+
+    <!-- Informational Cards Section -->
+    <section class="info-cards-section" style="min-height: 100vh; background: black; display: flex; justify-content: center; align-items: center; padding: 4rem 2rem;">
+      <div class="info-cards-container">
+        <a href="about.html" class="info-card" style="background-image: url('assets/about3.jpg');">
+          <div class="info-card-overlay"></div>
+          <div class="info-card-content">
+            <h3>About</h3>
+            <p>Discover our mission, vision, and the values that drive Smart Education Society forward</p>
+          </div>
+        </a>
+
+        <a href="business.html" class="info-card" style="background-image: url('assets/educationn.png');">
+          <div class="info-card-overlay"></div>
+          <div class="info-card-content">
+            <h3>Business</h3>
+            <p>Explore our innovative educational solutions and partnership opportunities</p>
+          </div>
+        </a>
+
+        <a href="career.html" class="info-card" style="background-image: url('assets/career.png');">
+          <div class="info-card-overlay"></div>
+          <div class="info-card-content">
+            <h3>Career</h3>
+            <p>Join our team and be part of transforming education for tomorrow's leaders</p>
+          </div>
+        </a>
       </div>
-    </div>
+    </section>
 
-    <!-- Career Panel -->
-    <div class="flex-slide career">
-      <div class="flex-content">
-        <i class="fas fa-briefcase icon-large"></i>
-        <div class="flex-title">Career</div>
-        <div class="flex-about">
-          <p>Join our team and make a difference in shaping future generations</p>
-          <a href="career.html" class="cta-button">Join Us</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Fade to Black Gradient Overlay -->
-  <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
-
+    <!-- Fade to Black Gradient Overlay -->
+    <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
+  </main>
+  
   <!-- Footer -->
   <footer>
     <div class="wave-container">
@@ -174,11 +222,10 @@
             <ul class="footer-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="education.html">Education</a></li>
             </ul>
             <ul class="footer-list">
-              <li><a href="career.html">Career</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="career.html">Business</a></li>
+              <li><a href="portfolio.html">Career</a></li>
             </ul>
           </div>
         </div>
@@ -271,10 +318,24 @@
   </div>
 
   <!-- JS Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  
+  <!-- GSAP Core -->
+  <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
+  <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+
+  <!-- Mobile detection script -->
+  <script>
+    !function(a){var b=/iPhone/i,c=/iPod/i,d=/iPad/i,e=/(?=.*\bAndroid\b)(?=.*\bMobile\b)/i,f=/Android/i,g=/(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i,h=/(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i,i=/Windows Phone/i,j=/(?=.*\bWindows\b)(?=.*\bARM\b)/i,k=/BlackBerry/i,l=/BB10/i,m=/Opera Mini/i,n=/(CriOS|Chrome)(?=.*\bMobile\b)/i,o=/(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,p=new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)","i"),q=function(a,b){return a.test(b)},r=function(a){var r=a||navigator.userAgent,s=r.split("[FBAN");if("undefined"!=typeof s[1]&&(r=s[0]),s=r.split("Twitter"),"undefined"!=typeof s[1]&&(r=s[0]),this.apple={phone:q(b,r),ipod:q(c,r),tablet:!q(b,r)&&q(d,r),device:q(b,r)||q(c,r)||q(d,r)},this.amazon={phone:q(g,r),tablet:!q(g,r)&&q(h,r),device:q(g,r)||q(h,r)},this.android={phone:q(g,r)||q(e,r),tablet:!q(g,r)&&!q(e,r)&&(q(h,r)||q(f,r)),device:q(g,r)||q(h,r)||q(e,r)||q(f,r)},this.windows={phone:q(i,r),tablet:q(j,r),device:q(i,r)||q(j,r)},this.other={blackberry:q(k,r),blackberry10:q(l,r),opera:q(m,r),firefox:q(o,r),chrome:q(n,r),device:q(k,r)||q(l,r)||q(m,r)||q(o,r)||q(n,r)},this.seven_inch=q(p,r),this.any=this.apple.device||this.android.device||this.windows.device||this.other.device||this.seven_inch,this.phone=this.apple.phone||this.android.phone||this.windows.phone,this.tablet=this.apple.tablet||this.android.tablet||this.windows.tablet,"undefined"==typeof window)return this},s=function(){var a=new r;return a.Class=r,a};"undefined"!=typeof module&&module.exports&&"undefined"==typeof window?module.exports=r:"undefined"!=typeof module&&module.exports&&"undefined"!=typeof window?module.exports=s():"function"==typeof define&&define.amd?define("isMobile",[],a.isMobile=s()):a.isMobile=s()}(this);
+    isMobile.any||document.querySelector('html').classList.add('is-desktop');
+  </script>
 
   <!-- Custom Script -->
   <script src="script.js"></script>
+
+  
 </body>
 </html>
-

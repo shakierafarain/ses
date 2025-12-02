@@ -1436,3 +1436,164 @@ if (ceoImageLeft && ceoImageRight && profilSection) {
   });
 }
 
+// ===== PERSPECTIVE ZOOM SCROLL EFFECT (Index Page) =====
+(function initZoomEffect() {
+  // Only run on pages that have the zoom container
+  const zoomContainer = document.querySelector('.zoom-container');
+  if (!zoomContainer) return;
+
+  // Register GSAP ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Initialize Lenis smooth scroll (FREE alternative to ScrollSmoother)
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+    direction: 'vertical',
+  });
+
+  // Connect Lenis to GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
+  // Main zoom timeline
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.zoom-container',
+      start: 'top top',
+      end: '+=150%',
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1
+    }
+  });
+
+  // Animate images from back to front with scale for depth effect
+  // Start from medium distance for balanced zoom effect
+  tl.fromTo(".zoom-item[data-layer='3']", 
+    { z: -600, opacity: 0.6, scale: 0.85 },
+    { z: 800, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
+  .fromTo(".zoom-item[data-layer='2']", 
+    { z: -500, opacity: 0.4, scale: 0.85 },
+    { z: 600, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
+  .fromTo(".zoom-item[data-layer='1']", 
+    { z: -400, opacity: 0.2, scale: 0.85 },
+    { z: 400, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
+  .fromTo('.heading', 
+    { z: -1000, opacity: 0.1 },
+    { z: 50, opacity: 1, ease: 'power1.inOut' }, 0);
+
+  // Text reveal: fallback implementation if SplitText (Club plugin) missing
+  let chars;
+  const opacityEl = document.querySelector('.opacity-reveal');
+  if (opacityEl) {
+    if (typeof SplitText !== 'undefined') {
+      try {
+        const split = SplitText.create(opacityEl);
+        chars = split.chars;
+      } catch (e) {
+        console.warn('SplitText failed, using fallback:', e.message);
+      }
+    }
+    if (!chars) {
+      const original = opacityEl.innerHTML;
+      opacityEl.innerHTML = '';
+      const frag = document.createDocumentFragment();
+      
+      // Split by <br> tags first to preserve line breaks
+      const lines = original.split(/<br\s*\/?>/i);
+      
+      lines.forEach((line, lineIndex) => {
+        // Split line into words
+        const words = line.split(' ');
+        
+        words.forEach((word, wordIndex) => {
+          // Create a word wrapper
+          const wordSpan = document.createElement('span');
+          wordSpan.style.display = 'inline-block';
+          wordSpan.style.whiteSpace = 'nowrap';
+          
+          // Split word into characters
+          [...word].forEach(ch => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = ch;
+            charSpan.style.display = 'inline-block';
+            charSpan.style.opacity = '0.2';
+            charSpan.className = 'char';
+            wordSpan.appendChild(charSpan);
+          });
+          
+          frag.appendChild(wordSpan);
+          
+          // Add space after word (except last word)
+          if (wordIndex < words.length - 1) {
+            const space = document.createElement('span');
+            space.innerHTML = '&nbsp;';
+            space.style.display = 'inline-block';
+            space.style.opacity = '0.2';
+            space.className = 'char';
+            frag.appendChild(space);
+          }
+        });
+        
+        // Add line break (except after last line)
+        if (lineIndex < lines.length - 1) {
+          frag.appendChild(document.createElement('br'));
+        }
+      });
+      
+      opacityEl.appendChild(frag);
+      chars = opacityEl.querySelectorAll('.char');
+    }
+  }
+
+  if (chars && chars.length) {
+    gsap.set(chars, { opacity: '0.2' });
+    const sloganTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-stick',
+        pin: true,
+        start: 'center center',
+        end: '+=1500',
+        scrub: 1,
+        onEnter: () => gsap.to('footer', { opacity: 1, pointerEvents: 'auto', duration: 0.5 }),
+        onLeaveBack: () => gsap.to('footer', { opacity: 0, pointerEvents: 'none', duration: 0.5 })
+      }
+    });
+    
+    sloganTimeline
+      .to(chars, { opacity: '1', duration: 1, ease: 'none', stagger: 1 })
+      .to({}, { duration: 10 })
+      .to('.opacity-reveal', { opacity: '0', scale: 1.2, duration: 5 })
+      .to('.info-cards-container', { 
+        opacity: 1, 
+        duration: 5,
+        ease: 'power2.out'
+      }, '-=5')
+      .from('.info-card', {
+        y: 50,
+        opacity: 0,
+        duration: 10,
+        stagger: 3,
+        ease: 'power2.out'
+      }, '-=10');
+  }
+
+  // Hide scroll indicator on scroll
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    let scrolled = false;
+    window.addEventListener('scroll', () => {
+      if (!scrolled && window.scrollY > 10) {
+        gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' });
+        scrolled = true;
+      }
+    });
+  }
+})();
