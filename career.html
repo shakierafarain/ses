@@ -26,7 +26,17 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="about.html" class="dropdown-toggle">
+          About <span class="dropdown-arrow">▼</span>
+        </a>
+        <div class="dropdown-content">
+          <a href="whoweare.html#who-we-are">Who We Are</a>
+          <a href="whoweare.html#vision-mission">Vision & Mission</a>
+          <a href="director.html">Director Profile</a>
+          <a href="ourteam.html">Our Team</a>
+        </div>
+      </li>
       <li class="dropdown">
         <a href="business.html" class="dropdown-toggle">
           Business <span class="dropdown-arrow">▼</span>
@@ -44,6 +54,11 @@
       </li>
     </ul>
   </nav>
+
+  <!-- Back Button (Mobile Only) -->
+  <button class="back-button" onclick="window.history.back()" aria-label="Go back">
+    <i class="fa fa-angle-left"></i>
+  </button>
 
   <!-- Hero section -->
   <header class="hero small-hero hero-career">

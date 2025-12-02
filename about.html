@@ -26,7 +26,17 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
+      <li class="dropdown">
+        <a href="about.html" class="active dropdown-toggle">
+          About <span class="dropdown-arrow">▼</span>
+        </a>
+        <div class="dropdown-content">
+          <a href="whoweare.html#who-we-are">Who We Are</a>
+          <a href="whoweare.html#vision-mission">Vision & Mission</a>
+          <a href="director.html">Director Profile</a>
+          <a href="ourteam.html">Our Team</a>
+        </div>
+      </li>
       <li class="dropdown">
         <a href="business.html" class="dropdown-toggle">
           Business <span class="dropdown-arrow">▼</span>
@@ -43,26 +53,71 @@
         </form>
       </li>
     </ul>
-  </nav>
+  </nav> 
 
-  <!-- Hero section -->
-  <header class="hero small-hero hero-about">
-    <div class="hero-content">
-        <h1>ABOUT</h1>
-        <p>Power of Belief</p>
+  <!-- Back Button (Mobile Only) -->
+  <button class="back-button" onclick="window.history.back()" aria-label="Go back">
+    <i class="fa fa-angle-left"></i>
+  </button>
+
+  <!-- Flex Container -->
+  <div class="flex-container">
+
+    <!-- Who We Are Panel -->
+    <div class="flex-slide about">
+      <div class="flex-content">
+        <i class="fas fa-info-circle icon-large"></i>
+        <div class="flex-title">Who We Are</div>
+        <div class="flex-about">
+          <p>Discover our mission to empower individuals through strategic guidance and comprehensive educational support</p>
+          <a href="whoweare.html#who-we-are" class="cta-button">Learn More</a>
+        </div>
+      </div>
     </div>
-  </header>  
 
-  <!-- About Section -->
-  <section class="about-section">
-    <div class="container">
-      <h2>Who We Are</h2>
-      <p>SMART EDUCATION SOCIETY (SES) is a strategic entity established as a reference and guidance platform to help clients make the right decisions before stepping into higher levels of education. We are not just advisors, we build confidence, craft strategies, and open new perspectives so that each individual can recognize their true potential. We believe that every decision shapes the future. Therefore, SES is here to shift mindsets, especially for those who feel less confident or capable. Our mission is to transform them into not just participants in the industry, but strong and respected competitors.</p>
+    <!-- Vision & Mission Panel -->
+    <div class="flex-slide research">
+      <div class="flex-content">
+        <i class="fas fa-bullseye icon-large"></i>
+        <div class="flex-title">Vision & Mission</div>
+        <div class="flex-about">
+          <p>Explore our vision to be the primary reference in education and our mission to empower every individual</p>
+          <a href="whoweare.html#vision-mission" class="cta-button">Learn More</a>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- Vision & Mission Section -->
-  <section class="vision-mission">
+    <!-- Profil Pengarah Panel -->
+    <div class="flex-slide career">
+      <div class="flex-content">
+        <i class="fas fa-user-tie icon-large"></i>
+        <div class="flex-title">Profil Pengarah</div>
+        <div class="flex-about">
+          <p>Meet our experienced leadership driving innovation and excellence across all our business ventures</p>
+          <a href="director.html" class="cta-button">Explore More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Team Panel -->
+    <div class="flex-slide about">
+      <div class="flex-content">
+        <i class="fas fa-users icon-large"></i>
+        <div class="flex-title">Our Team</div>
+        <div class="flex-about">
+          <p>Discover the talented individuals behind our success and their contributions to our mission</p>
+          <a href="ourteam.html" class="cta-button">Explore More</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fade to Black Gradient Overlay -->
+  <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
+
+  <!-- Vision & Mission Section (hidden placeholder) -->
+  <section class="vision-mission" style="display:none;">
     <div class="container">
       <!-- <h2>Vision & Mission</h2> -->
       <div class="vision-mission-grid">
@@ -82,83 +137,7 @@
     </div> 
   </section>
 
-  <section class="about-section profil-pengarah-section">
-    <div class="container">
-      <!-- CEO Images for Profil Pengarah section -->
-      <div class="ceo-images-container">
-        <img src="assets/ceo1.png" alt="CEO 1" class="ceo-image ceo-image-left">
-        <img src="assets/ceo2.png" alt="CEO 2" class="ceo-image ceo-image-right">
-      </div>
-      
-      <h2>Profil Pengarah</h2>
-      <p>Seorang usahawan berpengalaman dengan kepakaran dalam pelbagai bidang perniagaan. Dengan visi yang jelas dan komitmen yang tinggi, beliau telah membangunkan beberapa perniagaan yang berjaya dan mampan di Malaysia.</p>
-    </div>
-  </section>
 
-  <!-- Our Team Section with 3D Carousel -->
-  <section class="team-section">
-    <h1 class="about-title">OUR TEAM</h1>
-    <div class="carousel-container">
-      <button class="nav-arrow left">‹</button>
-      <div class="carousel-track">
-        <div class="card" data-index="0">
-          <img src="assets/en rahimi.png" alt="Team Member 1">
-        </div>
-        <div class="card" data-index="1">
-          <img src="assets/cik sofia.png" alt="Team Member 2">
-        </div>
-        <div class="card" data-index="2">
-          <img src="assets/en man.png" alt="Team Member 3">
-        </div>
-        <div class="card" data-index="3">
-          <img src="assets/en azizi.png" alt="Team Member 4">
-        </div>
-        <div class="card" data-index="4">
-          <img src="assets/en amirul.png" alt="Team Member 5">
-        </div>
-        <div class="card" data-index="5">
-          <img src="assets/pn ros.png" alt="Team Member 6">
-        </div>
-        <div class="card" data-index="6">
-          <img src="assets/en amri.png" alt="Team Member 7">
-        </div>
-        <div class="card" data-index="7">
-          <img src="assets/cik aryuni.png" alt="Team Member 8">
-        </div>
-        <div class="card" data-index="8">
-          <img src="assets/hasif.png" alt="Team Member 9">
-        </div>
-        <div class="card" data-index="9">
-          <img src="assets/ammar.png" alt="Team Member 10">
-        </div>
-        <div class="card" data-index="10">
-          <img src="assets/alif.png" alt="Team Member 11">
-        </div>
-        <!-- <div class="card" data-index="11">
-          <img src="assets/team12.jpg" alt="Team Member 12">
-        </div>
-        <div class="card" data-index="12">
-          <img src="assets/team13.jpg" alt="Team Member 13">
-        </div> -->
-      </div>
-      <button class="nav-arrow right">›</button>
-    </div>
-    <div class="dots">
-      <div class="dot active" data-index="0"></div>
-      <div class="dot" data-index="1"></div>
-      <div class="dot" data-index="2"></div>
-      <div class="dot" data-index="3"></div>
-      <div class="dot" data-index="4"></div>
-      <div class="dot" data-index="5"></div>
-      <div class="dot" data-index="6"></div>
-      <div class="dot" data-index="7"></div>
-      <div class="dot" data-index="8"></div>
-      <div class="dot" data-index="9"></div>
-      <div class="dot" data-index="10"></div>
-      <div class="dot" data-index="11"></div>
-      <div class="dot" data-index="12"></div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer>

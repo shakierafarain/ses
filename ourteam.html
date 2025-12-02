@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>BUSINESS - SES</title>
+  <title>OUR TEAM - SES</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -31,7 +27,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li class="dropdown">
-        <a href="about.html" class="dropdown-toggle">
+        <a href="about.html" class="active dropdown-toggle">
           About <span class="dropdown-arrow">▼</span>
         </a>
         <div class="dropdown-content">
@@ -42,7 +38,7 @@
         </div>
       </li>
       <li class="dropdown">
-        <a href="business.html" class="active dropdown-toggle">
+        <a href="business.html" class="dropdown-toggle">
           Business <span class="dropdown-arrow">▼</span>
         </a>
         <div class="dropdown-content">
@@ -59,81 +55,78 @@
     </ul>
   </nav>
 
+  <!-- Hero section -->
+  <header class="hero small-hero hero-team">
+    <div class="hero-content">
+      <h1>OUR TEAM</h1>
+      <p>Power of Belief</p>
+    </div>
+  </header>
+
   <!-- Back Button (Mobile Only) -->
   <button class="back-button" onclick="window.history.back()" aria-label="Go back">
     <i class="fa fa-angle-left"></i>
   </button>
 
-  <!-- Hero Section -->
-  <header class="hero small-hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/business-bg.jpg') center/cover no-repeat;">
-    <div class="hero-content">
-      <h1>BUSINESS</h1>
-      <p>Diversified Excellence Across Industries</p>
-    </div>
-  </header>
-
-  <!-- Portfolio Arch Container -->
-  <div class="container">
-    <div class="spacer"></div>
-
-    <div class="arch">
-      <div class="arch__left">
-        <div class="arch__info" id="education-arch">
-          <div class="content">
-            <h2 class="header">Education</h2>
-            <p class="desc">SES Education Division is committed to providing quality education and training programs. We offer comprehensive academic programs designed to nurture talent and develop skilled professionals ready to meet industry demands. Our state-of-the-art facilities and experienced faculty ensure students receive world-class education in a supportive environment.</p>
-            <a class="link" href="education.html" style="background-color: #D5FF37">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
-              </svg> <span>Learn More</span></a>
-          </div>
+  <!-- Our Team Section -->
+  <section class="team-section">
+    <h1 class="about-title">Meet Our Team</h1>
+    <div class="carousel-container">
+      <button class="nav-arrow left">‹</button>
+      <div class="carousel-track">
+        <div class="card" data-index="0">
+          <img src="assets/en rahimi.png" alt="Team Member 1">
         </div>
-
-        <div class="arch__info" id="kopi-arch">
-          <div class="content">
-            <h2 class="header">Kopi Saigon</h2>
-            <p class="desc">Kopi Saigon brings authentic Vietnamese coffee culture to the local market. Our café offers premium coffee blends, traditional Vietnamese beverages, and a unique dining experience. We pride ourselves on quality ingredients, traditional brewing methods, and warm hospitality that makes every visit memorable.</p>
-            <a class="link" href="https://www.tiktok.com/@kopisaigon.paroi?_r=1&_t=ZS-91k9AVJUCEK" style="background-color: #7DD6FF">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
-              </svg> <span>Learn More</span></a>
-          </div>
+        <div class="card" data-index="1">
+          <img src="assets/cik sofia.png" alt="Team Member 2">
         </div>
-
-        <div class="arch__info" id="logging-arch">
-          <div class="content">
-            <h2 class="header">Logging & Timber</h2>
-            <p class="desc">Our logging division operates with a strong commitment to sustainable forestry practices. We specialize in responsible timber harvesting, forest management, and wood processing. With proper licensing and environmental compliance, we ensure sustainable operations that balance economic needs with environmental conservation.</p>
-            <a class="link" href="portfolio.html#logging" style="background-color: #FFA0B0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
-              </svg> <span>Learn More</span></a>
-          </div>
+        <div class="card" data-index="2">
+          <img src="assets/en man.png" alt="Team Member 3">
+        </div>
+        <div class="card" data-index="3">
+          <img src="assets/en azizi.png" alt="Team Member 4">
+        </div>
+        <div class="card" data-index="4">
+          <img src="assets/en amirul.png" alt="Team Member 5">
+        </div>
+        <div class="card" data-index="5">
+          <img src="assets/pn ros.png" alt="Team Member 6">
+        </div>
+        <div class="card" data-index="6">
+          <img src="assets/en amri.png" alt="Team Member 7">
+        </div>
+        <div class="card" data-index="7">
+          <img src="assets/cik aryuni.png" alt="Team Member 8">
+        </div>
+        <div class="card" data-index="8">
+          <img src="assets/hasif.png" alt="Team Member 9">
+        </div>
+        <div class="card" data-index="9">
+          <img src="assets/ammar.png" alt="Team Member 10">
+        </div>
+        <div class="card" data-index="10">
+          <img src="assets/alif.png" alt="Team Member 11">
         </div>
       </div>
-
-      <div class="arch__right">
-        <div class="img-wrapper" data-index="3">
-          <img src="assets/educationn.png" alt="Education Business" onerror="this.src='https://via.placeholder.com/540x400/667eea/ffffff?text=Education'">
-        </div>
-
-        <div class="img-wrapper" data-index="2">
-          <img src="assets/kopisaigon.jpg" alt="Kopi Saigon" onerror="this.src='https://via.placeholder.com/540x400/4facfe/ffffff?text=Kopi+Saigon'">
-        </div>
-
-        <div class="img-wrapper" data-index="1">
-          <img src="assets/balak.png" alt="Logging Business" onerror="this.src='https://via.placeholder.com/540x400/43e97b/ffffff?text=Logging'">
-        </div>
-
-      </div>
+      <button class="nav-arrow right">›</button>
     </div>
-
-    <div class="spacer"></div>
-
-  </div>
+    <div class="dots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+      <div class="dot" data-index="4"></div>
+      <div class="dot" data-index="5"></div>
+      <div class="dot" data-index="6"></div>
+      <div class="dot" data-index="7"></div>
+      <div class="dot" data-index="8"></div>
+      <div class="dot" data-index="9"></div>
+      <div class="dot" data-index="10"></div>
+    </div>
+  </section>
 
   <!-- Fade to Black Gradient Overlay -->
-  <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
+  <div style="height: 200px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -200px; pointer-events: none; position: relative; z-index: 1;"></div>
 
   <!-- Footer -->
   <footer>
@@ -241,12 +234,12 @@
     <a href="tel:+601118558600" class="call-icon" id="callIcon">
       <i class="fas fa-phone-alt"></i>
     </a>
-  
+    
     <!-- Support Form Icon -->
     <div class="support-icon" id="supportIcon">
       <i class="fas fa-headset"></i>
     </div>
-  
+    
     <div class="support-form-container" id="supportFormContainer">
       <div class="support-form-header">
         <h3>Ada Pertanyaan?</h3>
@@ -276,10 +269,6 @@
     </div>
   </div>
 
-  <!-- JS Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
 </html>
