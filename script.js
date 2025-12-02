@@ -1476,126 +1476,73 @@ if (ceoImageLeft && ceoImageRight && profilSection) {
   gsap.ticker.lagSmoothing(0);
 
   // Main zoom timeline
+  const isMobileZoom = window.matchMedia('(max-width: 768px)').matches;
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '.zoom-container',
       start: 'top top',
-      end: '+=150%',
+      end: '+=200%',
       pin: true,
       scrub: 1,
-      anticipatePin: 1
+      anticipatePin: 1,
+      // On mobile, keep the start state snapped so the title sits nicely before moving
+      snap: isMobileZoom ? {
+        snapTo: (value) => (value < 0.12 ? 0 : value),
+        duration: 0.2,
+        ease: 'power1.out'
+      } : undefined
     }
   });
 
-  // Animate images from back to front with scale for depth effect
-  // Start from medium distance for balanced zoom effect
-  tl.fromTo(".zoom-item[data-layer='3']", 
-    { z: -600, opacity: 0.6, scale: 0.85 },
-    { z: 800, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
-  .fromTo(".zoom-item[data-layer='2']", 
-    { z: -500, opacity: 0.4, scale: 0.85 },
-    { z: 600, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
-  .fromTo(".zoom-item[data-layer='1']", 
-    { z: -400, opacity: 0.2, scale: 0.85 },
-    { z: 400, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
-  .fromTo('.heading-wrapper', 
-    { z: -1000, opacity: 0.1 },
-    { z: 50, opacity: 1, ease: 'power1.inOut' }, 0);
-
-  // Text reveal: fallback implementation if SplitText (Club plugin) missing
-  let chars;
-  const opacityEl = document.querySelector('.opacity-reveal');
-  if (opacityEl) {
-    if (typeof SplitText !== 'undefined') {
-      try {
-        const split = SplitText.create(opacityEl);
-        chars = split.chars;
-      } catch (e) {
-        console.warn('SplitText failed, using fallback:', e.message);
-      }
+  // Animate images; on mobile push them fully off-screen leaving only the title
+  const endForLayer = (layer) => {
+    if (isMobileZoom) {
+      return { z: 2000, opacity: 0, scale: 2.5, ease: 'power1.inOut' };
     }
-    if (!chars) {
-      const original = opacityEl.innerHTML;
-      opacityEl.innerHTML = '';
-      const frag = document.createDocumentFragment();
-      
-      // Split by <br> tags first to preserve line breaks
-      const lines = original.split(/<br\s*\/?>/i);
-      
-      lines.forEach((line, lineIndex) => {
-        // Split line into words
-        const words = line.split(' ');
-        
-        words.forEach((word, wordIndex) => {
-          // Create a word wrapper
-          const wordSpan = document.createElement('span');
-          wordSpan.style.display = 'inline-block';
-          wordSpan.style.whiteSpace = 'nowrap';
-          
-          // Split word into characters
-          [...word].forEach(ch => {
-            const charSpan = document.createElement('span');
-            charSpan.textContent = ch;
-            charSpan.style.display = 'inline-block';
-            charSpan.style.opacity = '0.2';
-            charSpan.className = 'char';
-            wordSpan.appendChild(charSpan);
-          });
-          
-          frag.appendChild(wordSpan);
-          
-          // Add space after word (except last word)
-          if (wordIndex < words.length - 1) {
-            const space = document.createElement('span');
-            space.innerHTML = '&nbsp;';
-            space.style.display = 'inline-block';
-            space.style.opacity = '0.2';
-            space.className = 'char';
-            frag.appendChild(space);
-          }
-        });
-        
-        // Add line break (except after last line)
-        if (lineIndex < lines.length - 1) {
-          frag.appendChild(document.createElement('br'));
-        }
-      });
-      
-      opacityEl.appendChild(frag);
-      chars = opacityEl.querySelectorAll('.char');
-    }
-  }
+    if (layer === 3) return { z: 800, opacity: 1, scale: 1, ease: 'power1.inOut' };
+    if (layer === 2) return { z: 600, opacity: 1, scale: 1, ease: 'power1.inOut' };
+    return { z: 400, opacity: 1, scale: 1, ease: 'power1.inOut' };
+  };
 
-  if (chars && chars.length) {
-    gsap.set(chars, { opacity: '0.2' });
-    const sloganTimeline = gsap.timeline({
+  tl.fromTo(".zoom-item[data-layer='3']",
+      { z: -600, opacity: 0.6, scale: 0.85 },
+      { z: 800, opacity: 0.6, scale: 0.85 },
+      endForLayer(3), 0)
+    .fromTo(".zoom-item[data-layer='2']",
+      { z: -500, opacity: 0.4, scale: 0.85 },
+      { z: 600, opacity: 0.6, scale: 0.85 },
+      endForLayer(2), 0)
+    .fromTo(".zoom-item[data-layer='1']",
+      { z: -400, opacity: 0.2, scale: 0.85 },
+      { z: 400, opacity: 0.6, scale: 0.85 },
+      endForLayer(1), 0)
+    .fromTo('.heading-wrapper',
+      { z: -1000, opacity: 0.1 },
+      { z: 50, opacity: 1, ease: 'power1.inOut' }, 0);
+
+  // Fade in info cards after zoom effect
+  const infoCardsContainer = document.querySelector('.info-cards-container');
+  if (infoCardsContainer) {
+    gsap.timeline({
       scrollTrigger: {
-        trigger: '.section-stick',
-        pin: true,
-        start: 'center center',
-        end: '+=1500',
+        trigger: '.info-cards-section',
+        start: 'top 80%',
+        end: 'top 20%',
         scrub: 1,
-        onEnter: () => gsap.to('footer', { opacity: 1, pointerEvents: 'auto', duration: 0.5 }),
-        onLeaveBack: () => gsap.to('footer', { opacity: 0, pointerEvents: 'none', duration: 0.5 })
       }
-    });
-    
-    sloganTimeline
-      .to(chars, { opacity: '1', duration: 1, ease: 'none', stagger: 1 })
-      .to({}, { duration: 10 })
-      .to('.opacity-reveal', { opacity: '0', scale: 1.2, duration: 5 })
-      .to('.info-cards-container', { 
-        opacity: 1, 
-        duration: 5,
-        ease: 'power2.out'
-      }, '-=5')
-      .from('.info-card', {
-        y: 50,
-        opacity: 0,
-        duration: 10,
-        stagger: 3,
-        ease: 'power2.out'
-      }, '-=10');
+    })
+    .to(infoCardsContainer, { 
+      opacity: 1, 
+      duration: 1,
+      ease: 'power2.out'
+    })
+    .from('.info-card', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'power2.out'
+    }, '-=0.5');
   }
 
   // Hide scroll indicator on scroll
@@ -1608,5 +1555,38 @@ if (ceoImageLeft && ceoImageRight && profilSection) {
         scrolled = true;
       }
     });
+  }
+
+  // Footer visibility control tied to info cards section (index page only)
+  const infoSection = document.querySelector('.info-cards-section');
+  const footerEl = document.querySelector('footer');
+  if (infoSection && footerEl) {
+    if (isMobileZoom) {
+      // Mobile: Keep footer visible when scrolling down; only fade when scrolling up past footer
+      gsap.set(footerEl, { opacity: 1, pointerEvents: 'auto' });
+
+      // Only hide when user scrolls UP past the footer's start
+      ScrollTrigger.create({
+        trigger: footerEl,
+        start: 'top bottom',      // when footer top hits bottom of viewport
+        end: 'bottom bottom',     // while footer bottom is at bottom of viewport
+        onEnter: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
+        onLeave: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
+        onEnterBack: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
+        onLeaveBack: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.25, ease: 'power2.in', overwrite: 'auto' })
+      });
+    } else {
+      // Desktop/tablet: show only while cards are in view
+      gsap.set(footerEl, { opacity: 0, pointerEvents: 'none' });
+      ScrollTrigger.create({
+        trigger: infoSection,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' }),
+        onEnterBack: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' }),
+        onLeave: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.3, ease: 'power2.in' }),
+        onLeaveBack: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.3, ease: 'power2.in' })
+      });
+    }
   }
 })();
