@@ -168,6 +168,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Close dropdown and hamburger menu when clicking on any dropdown content link
+  const dropdownContentLinks = document.querySelectorAll('.dropdown-content a');
+  dropdownContentLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Close all dropdowns
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+      // Close hamburger menu
+      navLinks.classList.remove('show');
+    });
+  });
+
   // Close dropdown when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
@@ -1485,7 +1498,7 @@ if (ceoImageLeft && ceoImageRight && profilSection) {
   .fromTo(".zoom-item[data-layer='1']", 
     { z: -400, opacity: 0.2, scale: 0.85 },
     { z: 400, opacity: 1, scale: 1, ease: 'power1.inOut' }, 0)
-  .fromTo('.heading', 
+  .fromTo('.heading-wrapper', 
     { z: -1000, opacity: 0.1 },
     { z: 50, opacity: 1, ease: 'power1.inOut' }, 0);
 
