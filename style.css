@@ -1,3 +1,12 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'Gloock';
+  src: url('fonts/Gloock-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Base */
 html {
   overflow-x: hidden;
@@ -2082,12 +2091,34 @@ body {
     padding: 60px 20px;
   }
 
+  .director-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
   .director-image {
     max-width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .director-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -500px; /* Overlap the image */
   }
 
   .glass-card-director {
     padding: 30px 25px;
+    backdrop-filter: blur(10px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(10px) saturate(180%) brightness(1.05);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
   }
 
   .glass-card-director h2 {
@@ -2329,6 +2360,14 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .whoweare-section {
+    scroll-margin-top: 100px;
+  }
+
+  .vision-mission-section {
+    scroll-margin-top: 100px;
+  }
+
   .vision-mission-grid-glass {
     grid-template-columns: 1fr;
     gap: 20px;

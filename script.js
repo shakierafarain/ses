@@ -168,6 +168,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Close dropdown and hamburger menu when clicking on any dropdown content link
+  const dropdownContentLinks = document.querySelectorAll('.dropdown-content a');
+  dropdownContentLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Close all dropdowns
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+      // Close hamburger menu
+      navLinks.classList.remove('show');
+    });
+  });
+
   // Close dropdown when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
