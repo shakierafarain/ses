@@ -24,6 +24,11 @@ body {
   flex-direction: column;
 }
 
+/* Add padding for pages with hero sections (not index page) */
+body:not(.index-page) {
+  padding-top: 100px;
+}
+
 /* Hero section */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(assets/career.png);
