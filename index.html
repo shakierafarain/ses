@@ -51,7 +51,6 @@
     <div class="logo">
       <a href="index.html">
         <img src="assets/ses logo white.png" alt="SES Logo">
-        
       </a>
     </div>
 
@@ -91,91 +90,45 @@
     </ul>
   </nav>
 
-  <!-- Main Content Wrapper for ScrollSmoother -->
-  <main>
-    <!-- Perspective Zoom Effect Section (Replaces Flex Container) -->
-    <div class="zoom-container">
-      <div class="heading-wrapper">
-        <img src="assets/seslogoo.png" alt="SES Logo" class="heading-logo">
-        <h1 class="heading">SMART<br />EDUCATION<br />SOCIETY</h1>
-      </div>
-      <!-- Scroll Down Indicator -->
-      <div class="scroll-indicator">
-        <span>Scroll Down</span>
-        <div class="scroll-arrow">↓</div>
-      </div>
-      <div class="zoom-item" data-layer="2">
-        <img src="assets/educationn.png" alt="Education">
-      </div>
-      <div class="zoom-item" data-layer="2">
-        <img src="assets/uitm.png" alt="UiTM" />
-      </div>
-      <div class="zoom-item" data-layer="1">
-        <img src="assets/um.png" alt="UM" />
-      </div>
-      <div class="zoom-item" data-layer="2">
-        <img src="assets/utm.png" alt="UTM" />
-      </div>
-      <div class="zoom-item" data-layer="3">
-        <img src="assets/upkb.png" alt="UPKB" />
-      </div>
-      <div class="zoom-item" data-layer="1">
-        <img src="assets/uic.png" alt="UIC" />
-      </div>
-      <div class="zoom-item" data-layer="3">
-        <img src="assets/ses logo white.png" alt="SES Logo" />
-      </div>
-      <div class="zoom-item" data-layer="3">
-        <img src="assets/portfolio.png" alt="Portfolio" />
-      </div>
-      <div class="zoom-item" data-layer="1">
-        <img src="assets/career.png" alt="Career" />
-      </div>
-      <div class="zoom-item" data-layer="3">
-        <img src="assets/about3.jpg" alt="About" />
-      </div>
-      <div class="zoom-item" data-layer="2">
-        <img src="assets/SMART TAHFIZ (1).jpg" alt="Smart Tahfiz" />
-      </div>
-      <div class="zoom-item" data-layer="1">
-        <img src="assets/logo smtaa rbg.png" alt="SMTAA" />
+  <!-- Static Hero Header Section -->
+  <section class="hero-header">
+    <div class="hero-inner">
+      <h1 class="hero-title">Smart Education Society</h1>
+      <p class="hero-subtitle">The future belongs to those who keep learning, and opportunities given to those who seek for it. <br> Start your journey here.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Explore</a>
       </div>
     </div>
+  </section>
 
-    
+  <!-- Informational Cards Section -->
+  <section class="info-cards-section">
+    <div class="info-cards-container">
+      <a href="about.html" class="info-card" style="background-image: url('assets/about3.jpg');">
+        <div class="info-card-overlay"></div>
+        <div class="info-card-content">
+          <h3>About</h3>
+          <p>Discover our mission, vision, and the values that drive Smart Education Society forward</p>
+        </div>
+      </a>
 
-    <!-- Informational Cards Section -->
-    <section class="info-cards-section" style="min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 4rem 2rem;">
-      <div class="info-cards-container">
-        <a href="about.html" class="info-card" style="background-image: url('assets/about3.jpg');">
-          <div class="info-card-overlay"></div>
-          <div class="info-card-content">
-            <h3>About</h3>
-            <p>Discover our mission, vision, and the values that drive Smart Education Society forward</p>
-          </div>
-        </a>
+      <a href="business.html" class="info-card" style="background-image: url('assets/educationn.png');">
+        <div class="info-card-overlay"></div>
+        <div class="info-card-content">
+          <h3>Business</h3>
+          <p>Explore our innovative educational solutions and partnership opportunities</p>
+        </div>
+      </a>
 
-        <a href="business.html" class="info-card" style="background-image: url('assets/educationn.png');">
-          <div class="info-card-overlay"></div>
-          <div class="info-card-content">
-            <h3>Business</h3>
-            <p>Explore our innovative educational solutions and partnership opportunities</p>
-          </div>
-        </a>
-
-        <a href="career.html" class="info-card" style="background-image: url('assets/career.png');">
-          <div class="info-card-overlay"></div>
-          <div class="info-card-content">
-            <h3>Career</h3>
-            <p>Join our team and be part of transforming education for tomorrow's leaders</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Fade to Black Gradient Overlay -->
-    <div style="height: 300px; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 90%, black 100%); margin-top: -300px; pointer-events: none; position: relative; z-index: 1;"></div>
-  </main>
+      <a href="career.html" class="info-card" style="background-image: url('assets/career.png');">
+        <div class="info-card-overlay"></div>
+        <div class="info-card-content">
+          <h3>Career</h3>
+          <p>Join our team and be part of transforming education for tomorrow's leaders</p>
+        </div>
+      </a>
+    </div>
+  </section>
   
   <!-- Footer -->
   <footer>
@@ -319,13 +272,6 @@
 
   <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
-  <!-- Lenis Smooth Scroll -->
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  
-  <!-- GSAP Core -->
-  <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
-  <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
 
   <!-- Mobile detection script -->
   <script>
@@ -336,6 +282,5 @@
   <!-- Custom Script -->
   <script src="script.js"></script>
 
-  
 </body>
 </html>

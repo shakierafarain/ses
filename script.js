@@ -1376,217 +1376,36 @@ ScrollTrigger.matchMedia({
   }
 });
 
-// CEO Images Scroll Animation (for About Page - Profil Pengarah section)
-const ceoImageLeft = document.querySelector('.ceo-image-left');
-const ceoImageRight = document.querySelector('.ceo-image-right');
-const profilSection = document.querySelector('.profil-pengarah-section');
 
-if (ceoImageLeft && ceoImageRight && profilSection) {
-  // Create ScrollTrigger for CEO images
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".profil-pengarah-section",
-      start: "top center",
-      end: "bottom center",
-      scrub: 1,
-      onEnter: () => {
-        gsap.to(ceoImageLeft, {
-          left: "20px",
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out"
-        });
-        gsap.to(ceoImageRight, {
-          right: "20px",
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out"
-        });
-      },
-      onLeave: () => {
-        gsap.to(ceoImageLeft, {
-          left: "-250px",
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        });
-        gsap.to(ceoImageRight, {
-          right: "-250px",
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(ceoImageLeft, {
-          left: "20px",
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out"
-        });
-        gsap.to(ceoImageRight, {
-          right: "20px",
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out"
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(ceoImageLeft, {
-          left: "-250px",
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        });
-        gsap.to(ceoImageRight, {
-          right: "-250px",
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        });
-      }
-    }
-  });
-}
+// ===== Index Page Hero + Cards (no zoom) =====
+(function initIndexPage() {
+  const isIndex = document.body.classList.contains('index-page');
+  if (!isIndex) return;
 
-// ===== PERSPECTIVE ZOOM SCROLL EFFECT (Index Page) =====
-(function initZoomEffect() {
-  // Only run on pages that have the zoom container
-  const zoomContainer = document.querySelector('.zoom-container');
-  if (!zoomContainer) return;
-
-  // Register GSAP ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
-  // Initialize Lenis smooth scroll (FREE alternative to ScrollSmoother)
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-    direction: 'vertical',
-  });
+  // Simple hero entrance animation (non-pinned)
+  const hero = document.querySelector('.hero-header');
+  if (hero) {
+    gsap.from('.hero-title', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' });
+    gsap.from('.hero-subtitle', { y: 20, opacity: 0, duration: 0.6, delay: 0.1, ease: 'power2.out' });
+    gsap.from('.hero-cta a', { y: 10, opacity: 0, duration: 0.5, delay: 0.2, stagger: 0.1, ease: 'power2.out' });
+  }
 
-  // Connect Lenis to GSAP ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
-
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-
-  gsap.ticker.lagSmoothing(0);
-
-  // Main zoom timeline
-  const isMobileZoom = window.matchMedia('(max-width: 768px)').matches;
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.zoom-container',
-      start: 'top top',
-      end: '+=200%',
-      pin: true,
-      scrub: 1,
-      anticipatePin: 1,
-      // On mobile, keep the start state snapped so the title sits nicely before moving
-      snap: isMobileZoom ? {
-        snapTo: (value) => (value < 0.12 ? 0 : value),
-        duration: 0.2,
-        ease: 'power1.out'
-      } : undefined
-    }
-  });
-
-  // Animate images; on mobile push them fully off-screen leaving only the title
-  const endForLayer = (layer) => {
-    if (isMobileZoom) {
-      return { z: 2000, opacity: 0, scale: 2.5, ease: 'power1.inOut' };
-    }
-    if (layer === 3) return { z: 800, opacity: 1, scale: 1, ease: 'power1.inOut' };
-    if (layer === 2) return { z: 600, opacity: 1, scale: 1, ease: 'power1.inOut' };
-    return { z: 400, opacity: 1, scale: 1, ease: 'power1.inOut' };
-  };
-
-  tl.fromTo(".zoom-item[data-layer='3']",
-      { z: -600, opacity: 0.6, scale: 0.85 },
-      { z: 800, opacity: 0.6, scale: 0.85 },
-      endForLayer(3), 0)
-    .fromTo(".zoom-item[data-layer='2']",
-      { z: -500, opacity: 0.4, scale: 0.85 },
-      { z: 600, opacity: 0.6, scale: 0.85 },
-      endForLayer(2), 0)
-    .fromTo(".zoom-item[data-layer='1']",
-      { z: -400, opacity: 0.2, scale: 0.85 },
-      { z: 400, opacity: 0.6, scale: 0.85 },
-      endForLayer(1), 0)
-    .fromTo('.heading-wrapper',
-      { z: -1000, opacity: 0.1 },
-      { z: 50, opacity: 1, ease: 'power1.inOut' }, 0);
-
-  // Fade in info cards after zoom effect
-  const infoCardsContainer = document.querySelector('.info-cards-container');
-  if (infoCardsContainer) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '.info-cards-section',
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 1,
-      }
-    })
-    .to(infoCardsContainer, { 
-      opacity: 1, 
-      duration: 1,
-      ease: 'power2.out'
-    })
-    .from('.info-card', {
-      y: 50,
+  // Animate in info cards immediately on page load
+  const infoCards = document.querySelectorAll('.info-card');
+  if (infoCards.length > 0) {
+    gsap.from(infoCards, {
+      y: 30,
       opacity: 0,
       duration: 0.8,
       stagger: 0.2,
+      delay: 0.3,
       ease: 'power2.out'
-    }, '-=0.5');
-  }
-
-  // Hide scroll indicator on scroll
-  const scrollIndicator = document.querySelector('.scroll-indicator');
-  if (scrollIndicator) {
-    let scrolled = false;
-    window.addEventListener('scroll', () => {
-      if (!scrolled && window.scrollY > 10) {
-        gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' });
-        scrolled = true;
-      }
     });
   }
 
-  // Footer visibility control tied to info cards section (index page only)
-  const infoSection = document.querySelector('.info-cards-section');
-  const footerEl = document.querySelector('footer');
-  if (infoSection && footerEl) {
-    if (isMobileZoom) {
-      // Mobile: Keep footer visible when scrolling down; only fade when scrolling up past footer
-      gsap.set(footerEl, { opacity: 1, pointerEvents: 'auto' });
+  // No scroll indicator on static layout
 
-      // Only hide when user scrolls UP past the footer's start
-      ScrollTrigger.create({
-        trigger: footerEl,
-        start: 'top bottom',      // when footer top hits bottom of viewport
-        end: 'bottom bottom',     // while footer bottom is at bottom of viewport
-        onEnter: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
-        onLeave: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
-        onEnterBack: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.2, ease: 'power2.out', overwrite: 'auto' }),
-        onLeaveBack: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.25, ease: 'power2.in', overwrite: 'auto' })
-      });
-    } else {
-      // Desktop/tablet: show only while cards are in view
-      gsap.set(footerEl, { opacity: 0, pointerEvents: 'none' });
-      ScrollTrigger.create({
-        trigger: infoSection,
-        start: 'top center',
-        end: 'bottom center',
-        onEnter: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' }),
-        onEnterBack: () => gsap.to(footerEl, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' }),
-        onLeave: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.3, ease: 'power2.in' }),
-        onLeaveBack: () => gsap.to(footerEl, { opacity: 0, pointerEvents: 'none', duration: 0.3, ease: 'power2.in' })
-      });
-    }
-  }
+  // Footer always clickable; no JS opacity/pointer-events changes
 })();
