@@ -2045,12 +2045,14 @@ body:not(.index-page) {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
 }
 
 .director-content {
-  width: 100%;
-}
+    position: relative;
+    z-index: 2;
+    margin-top: calc(-35vh - 20px); /* Responsive overlap based on viewport height */
+    min-height: 40vh; /* Ensure content has minimum height */
+  }
 
 .glass-card-director {
   background: linear-gradient(
@@ -2175,16 +2177,30 @@ body:not(.index-page) {
   }
 
   .glass-card-director h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
   }
 
   .glass-card-director h3 {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
   }
 
   .glass-card-director p,
   .director-achievements ul li {
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .director-content {
+    margin-top: calc(-40vh - 20px); /* Less overlap on very small screens naikkan liquid glass en arip */
+  }
+}
+
+/* Larger mobile/small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .director-content {
+    margin-top: calc(-40vh - 20px); /* More overlap on larger mobile screens */
   }
 }
 

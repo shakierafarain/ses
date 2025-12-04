@@ -207,151 +207,6 @@ function openModal(id) {
       });
     }
 
-// === Updated Popup logic with Ads ===
-window.addEventListener('load', () => {
-  const adsPopup = document.getElementById('adsPopup');
-  const closeAdsBtn = document.getElementById('closeAdsPopup');
-  const userPopup = document.getElementById('userPopup');
-  const closeBtn = document.getElementById('closePopup');
-  const form = document.getElementById('popupForm');
-  const welcomePopup = document.getElementById('welcomePopup');
-  const closeWelcome = document.getElementById('closeWelcome');
-  const welcomeOk = document.getElementById('welcomeOk');
-
-  // Show ads popup first if not shown in this session (only if adsPopup exists)
-  if (adsPopup) {
-    if (!sessionStorage.getItem('adsShown')) {
-      adsPopup.style.display = 'flex';
-    } else if (userPopup) {
-      // If ads already shown but user popup not shown, show user popup
-      if (!sessionStorage.getItem('popupShown')) userPopup.style.display = 'flex';
-    }
-  }
-
-  // Close ads popup and show user registration popup
-  if (closeAdsBtn && adsPopup) {
-    closeAdsBtn.addEventListener('click', () => {
-      adsPopup.style.display = 'none';
-      sessionStorage.setItem('adsShown', 'true');
-      
-      // Show user registration popup if not shown yet
-      if (userPopup && !sessionStorage.getItem('popupShown')) {
-        userPopup.style.display = 'flex';
-      }
-    });
-  }
-
-  // Close registration popup manually
-  if (closeBtn && userPopup) {
-    closeBtn.addEventListener('click', () => {
-      userPopup.style.display = 'none';
-      sessionStorage.setItem('popupShown', 'true');
-    });
-  }
-
-  // Form submission — show inline errors under each field (no alerts)
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const emelEl = document.getElementById('emel');
-    const phoneEl = document.getElementById('phone');
-    const emelError = document.getElementById('emelError');
-    const phoneError = document.getElementById('phoneError');
-    const emelField = document.getElementById('emelField');
-    const phoneField = document.getElementById('phoneField');
-
-    // clear previous errors
-    emelError.textContent = '';
-    phoneError.textContent = '';
-    emelEl.classList.remove('input-invalid');
-    phoneEl.classList.remove('input-invalid');
-    emelField.classList.remove('has-error');
-    phoneField.classList.remove('has-error');
-
-    const emel = emelEl.value.trim();
-    const phone = phoneEl.value.trim();
-
-    let hasError = false;
-
-    // Email validation: must contain @
-    if (!emel || emel.indexOf('@') === -1) {
-      emelError.textContent = 'Sila masukkan alamat emel yang sah.';
-      emelEl.classList.add('input-invalid');
-      emelField.classList.add('has-error');
-      hasError = true;
-    }
-
-    // Phone validation: must start with 01 and be 10-11 digits
-    const phonePattern = /^01\d{8,9}$/;
-    if (!phonePattern.test(phone)) {
-      phoneError.textContent = 'Sila masukkan nombor telefon yang sah.';
-      phoneEl.classList.add('input-invalid');
-      phoneField.classList.add('has-error');
-      hasError = true;
-    }
-
-    if (hasError) {
-      // keep popup open and let user correct
-      return;
-    }
-
-    // No errors -> proceed with previous flow
-    userPopup.style.display = 'none';
-    welcomePopup.style.display = 'flex';
-    sessionStorage.setItem('popupShown', 'true');
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwz7XG3NEy32RV1JGUlHrHZKrUjcf06sYxZSzEivrdzurcxTAXbh5pIrh2SjzQBJTA/exec";
-    try {
-      await fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: emel, phone }),
-      });
-    } catch (error) {
-      console.error('Error!', error && error.message ? error.message : error);
-    }
-  });
-  }
-
-  // Close welcome popup
-  const closeWelcomePopup = () => {
-    welcomePopup.style.display = "none";
-  };
-
-  closeWelcome.addEventListener('click', closeWelcomePopup);
-  welcomeOk.addEventListener('click', closeWelcomePopup);
-
-  // Clear errors as user types
-  try {
-    const _emel = document.getElementById('emel');
-    const _phone = document.getElementById('phone');
-    const _emelError = document.getElementById('emelError');
-    const _phoneError = document.getElementById('phoneError');
-    const _emelField = document.getElementById('emelField');
-    const _phoneField = document.getElementById('phoneField');
-
-    if (_emel) {
-      _emel.addEventListener('input', () => {
-        if (_emelError) _emelError.textContent = '';
-        _emel.classList.remove('input-invalid');
-        if (_emelField) _emelField.classList.remove('has-error');
-      });
-    }
-
-    if (_phone) {
-      _phone.addEventListener('input', () => {
-        if (_phoneError) _phoneError.textContent = '';
-        _phone.classList.remove('input-invalid');
-        if (_phoneField) _phoneField.classList.remove('has-error');
-      });
-    }
-  } catch (err) {
-    // non-critical
-  }
-});
-
 // === Lightbox logic ===
 document.querySelectorAll('.popup-img').forEach(img => {
   img.addEventListener('click', () => {
@@ -362,27 +217,7 @@ document.querySelectorAll('.popup-img').forEach(img => {
   });
 });
 
-// === FAQ Accordion Logic ===
-document.addEventListener('DOMContentLoaded', () => {
-  const faqCategories = document.querySelectorAll('.faq-category-header');
-  
-  faqCategories.forEach(header => {
-    header.addEventListener('click', () => {
-      const category = header.parentElement;
-      const isActive = category.classList.contains('active');
-      
-      // Close all other categories
-      document.querySelectorAll('.faq-category').forEach(cat => {
-        cat.classList.remove('active');
-      });
-      
-      // Toggle current category
-      if (!isActive) {
-        category.classList.add('active');
-      }
-    });
-  });
-});
+
 
 // === Support Widget Logic ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -893,25 +728,96 @@ document.addEventListener('DOMContentLoaded', () => {
     internshipForm.classList.remove('active');
   });
 
+  // Helper function to convert file to Base64
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   // Form submissions
   const careerForms = document.querySelectorAll('.career-form');
   careerForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(e.target);
+      // Determine form type
+      const isInternship = e.target.closest('#internshipForm');
+      const formType = isInternship ? 'Internship' : 'Fulltime';
       
-      // Simple validation passed - show success message
-      alert('Terima kasih! Permohonan anda telah diterima. Kami akan menghubungi anda tidak lama lagi.');
+      // Your correct Google Sheets URL
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzqajm45pYtmTg0AqqGj2D7bYe2XR24W5dqL2u7nHCdisPrOATnDao91NLzzvN8VyKp/exec";
       
-      // Reset form and close overlay
-      e.target.reset();
-      fulltimeForm.classList.remove('active');
-      internshipForm.classList.remove('active');
-      
-      // Here you can add actual form submission logic
-      // e.g., send to Google Sheets, backend API, etc.
+      try {
+        // Collect all form data
+        const data = {
+          formType: formType,
+          'Nama Penuh': e.target.querySelector('[name="Nama Penuh"]')?.value || '',
+          Email: e.target.querySelector('[name="Email"]')?.value || '',
+          IC: e.target.querySelector('[name="IC"]')?.value || '',
+          Jantina: e.target.querySelector('[name="Jantina"]')?.value || '',
+          'No. Tel': e.target.querySelector('[name="No. Tel"]')?.value || '',
+          'No. Tel Kecemasan': e.target.querySelector('[name="No. Tel Kecemasan"]')?.value || '',
+          'Alamat terkini': e.target.querySelector('[name="Alamat terkini"]')?.value || '',
+          Institusi: e.target.querySelector('[name="Institusi"]')?.value || '',
+          Jurusan: e.target.querySelector('[name="Jurusan"]')?.value || '',
+          'Tarikh Lapor Diri': e.target.querySelector('[name="Tarikh Lapor Diri"]')?.value || '',
+          'Tarikh Akhir': e.target.querySelector('[name="Tarikh Akhir"]')?.value || '',
+          'Status Asrama': e.target.querySelector('[name="Status Asrama"]')?.value || ''
+        };
+
+        // Handle file uploads
+        const resumeInput = e.target.querySelector('#int-resume');
+        const transcriptInput = e.target.querySelector('#int-transcript');
+        const replyInput = e.target.querySelector('#int-reply');
+
+        // Convert files to Base64
+        if (resumeInput && resumeInput.files[0]) {
+          const resumeFile = resumeInput.files[0];
+          data['Resume'] = await toBase64(resumeFile);
+          data['ResumeFileName'] = resumeFile.name;
+        }
+
+        if (transcriptInput && transcriptInput.files[0]) {
+          const transcriptFile = transcriptInput.files[0];
+          data['Transkrip Akademik'] = await toBase64(transcriptFile);
+          data['Transkrip AkademikFileName'] = transcriptFile.name;
+        }
+
+        if (replyInput && replyInput.files[0]) {
+          const replyFile = replyInput.files[0];
+          data['Reply Form'] = await toBase64(replyFile);
+          data['Reply FormFileName'] = replyFile.name;
+        }
+
+        console.log('Sending data to Google Sheets:', data);
+
+        // Send to Google Sheets
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'text/plain'
+          }
+        });
+
+        console.log('Response received:', response);
+        
+        // Show success message
+        alert('Terima kasih! Permohonan anda telah diterima. Kami akan menghubungi anda tidak lama lagi.');
+        
+        // Reset form and close overlay
+        e.target.reset();
+        fulltimeForm.classList.remove('active');
+        internshipForm.classList.remove('active');
+        
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Maaf, terdapat masalah semasa menghantar permohonan. Sila cuba lagi.');
+      }
     });
   });
 
@@ -1409,3 +1315,64 @@ ScrollTrigger.matchMedia({
 
   // Footer always clickable; no JS opacity/pointer-events changes
 })();
+
+// ========================
+// INTERNSHIP FORM SUBMISSION
+// ========================
+// document.getElementById("internship-form").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+
+//   const scriptURL = "https://script.google.com/macros/s/AKfycbw-H_or_DodYpYKi2y9-CPu4dB7IYjSBxnVWUkVvYMI6xoX0cqLJropj7mwB9Tv_SmT/exec"; // <--- PUT YOUR URL HERE
+
+//   // Get fields
+//   const name = document.getElementById("intern-name").value;
+//   const email = document.getElementById("intern-email").value;
+//   const phone = document.getElementById("intern-phone").value;
+//   const message = document.getElementById("intern-message").value;
+
+//   const fileInput = document.getElementById("intern-file");
+//   let fileBase64 = "";
+//   let fileName = "";
+
+//   if (fileInput.files.length > 0) {
+//     const file = fileInput.files[0];
+//     fileName = file.name;
+//     fileBase64 = await toBase64(file);
+//   }
+
+//   const formData = {
+//     name,
+//     email,
+//     phone,
+//     message,
+//     file: fileBase64,
+//     fileName: fileName
+//   };
+
+//   try {
+//     const res = await fetch(scriptURL, {
+//       method: "POST",
+//       body: JSON.stringify(formData),
+//     });
+
+//     if (res.ok) {
+//       alert("Internship form submitted successfully!");
+//       e.target.reset();
+//     } else {
+//       alert("Error submitting form.");
+//     }
+
+//   } catch (err) {
+//     alert("Network error: " + err);
+//   }
+// });
+
+// // Convert file to Base64
+// function toBase64(file) {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.readAsDataURL(file);
+//     reader.onload = () => resolve(reader.result.split(',')[1]);
+//     reader.onerror = reject;
+//   });
+// }

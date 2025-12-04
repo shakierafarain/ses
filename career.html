@@ -179,40 +179,71 @@
           <form class="career-form">
             <div class="form-group">
               <label for="int-name">Full Name</label>
-              <input type="text" id="int-name" required placeholder="Fatimah binti Hassan">
-            </div>
-            <div class="form-group">
-              <label for="int-age">Age</label>
-              <input type="number" id="int-age" required placeholder="22">
+              <input type="text" id="int-name" name="Nama Penuh" required placeholder="Fatimah binti Hassan">
             </div>
             <div class="form-group">
               <label for="int-email">Email</label>
-              <input type="email" id="int-email" required placeholder="fatimah@example.com">
+              <input type="email" id="int-email" name="Email" required placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="int-ic">IC</label>
+              <input type="text" id="int-ic" name="IC" required placeholder="123456-78-9012">
+            </div>
+            <div class="form-group">
+              <label for="int-gender">Gender</label>
+              <select id="int-gender" name="Jantina" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="int-phone">Phone Number</label>
-              <input type="tel" id="int-phone" required placeholder="01xxxxxxxx">
+              <input type="tel" id="int-phone" name="No. Tel" required placeholder="01xxxxxxxx">
+            </div>
+            <div class="form-group">
+              <label for="int-emergency-phone">Emergency Phone Number</label>
+              <input type="tel" id="int-emergency-phone" name="No. Tel Kecemasan" required placeholder="01xxxxxxxx">
+            </div>
+            <div class="form-group">
+              <label for="int-address">Full Address</label>
+              <input type="text" id="int-address" name="Alamat terkini" required placeholder="123 Main St">
             </div>
             <div class="form-group">
               <label for="int-institution">Educational Institution</label>
-              <input type="text" id="int-institution" required placeholder="University of Malaya">
+              <input type="text" id="int-institution" name="Institusi" required placeholder="">
             </div>
             <div class="form-group">
               <label for="int-course">Course/Field of Study</label>
-              <input type="text" id="int-course" required placeholder="Education">
+              <input type="text" id="int-course" name="Jurusan" required placeholder="Education">
             </div>
             <div class="form-group">
-              <label for="int-duration">Training Period Applied</label>
-              <select id="int-duration" required>
-                <option value="">Select Duration</option>
-                <option value="1month">1 Month</option>
-                <option value="3months">3 Months</option>
-                <option value="6months">6 Months</option>
+              <label for="int-report-date">Report Date</label>
+              <input type="date" id="int-report-date" name="Tarikh Lapor Diri" required>
+            </div>
+            <div class="form-group">
+              <label for="int-end-date">End Date</label>
+              <input type="date" id="int-end-date" name="Tarikh Akhir" required>
+            </div>
+            <div class="form-group">
+              <label for="int-duration">Need Hostel ?</label>
+              <select id="int-duration" name="Status Asrama" required>
+                <option value="">Yes or No</option>
+                <option value="1month">Yes</option>
+                <option value="3months">No</option>
               </select>
             </div>
-            <div class="form-group full-width">
-              <label for="int-message">Industrial Training Objectives</label>
-              <textarea id="int-message" rows="4" required placeholder="What do you hope to learn..."></textarea>
+            <div class="form-group">
+              <label for="int-resume">Resume</label>
+              <input type="file" id="int-resume" name="Resume" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="form-group">
+              <label for="int-transcript">Academic Transcript</label>
+              <input type="file" id="int-transcript" name="Transkrip" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="form-group">
+              <label for="int-reply">Reply Form (if applicable)</label>
+              <input type="file" id="int-reply" name="ReplyForm" accept=".pdf,.doc,.docx" required>
             </div>
             <button type="submit" class="submit-btn">
               <i class="fas fa-paper-plane"></i> Submit Application
