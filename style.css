@@ -21,8 +21,8 @@
 .hero-title { 
   font-size: clamp(2rem, 5vw, 4rem); 
   margin: 0 0 16px; 
-  line-height: 0.8; 
-  font-family: 'Gloock';
+  line-height: 1; 
+  font-family: 'Futura', sans-serif;
 }
 
 .hero-subtitle { 
@@ -1849,12 +1849,6 @@ body:not(.index-page) {
       align-items: center !important;
     }
 
-    /* .footer-logo-title {
-      margin: 0.4rem 0 0.6rem 0 !important;
-      font-size: 0.5rem !important;
-      text-align: center !important;
-    } */
-
     .footer-tagline {
       margin: 0.4rem 0 0.6rem 0 !important;
       text-align: center !important;
@@ -2022,6 +2016,12 @@ body:not(.index-page) {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    transparent 40%, 
+    rgba(0,0,0,0.3) 60%, 
+    rgba(0,0,0,0.7) 80%, 
+    #000 100%);
 }
 
 .director-container {
@@ -2034,11 +2034,12 @@ body:not(.index-page) {
 }
 
 .director-image {
-  width: 100%;
-  height: auto;
+  width: 160%;
+  height: auto; 
   border-radius: 0;
   overflow: visible;
   box-shadow: none;
+  margin-left: -130px; /* Move image to the left */
 }
 
 .director-image img {
@@ -2050,7 +2051,7 @@ body:not(.index-page) {
 .director-content {
     position: relative;
     z-index: 2;
-    margin-top: calc(-35vh - 20px); /* Responsive overlap based on viewport height */
+    margin-top: calc(10vh - 20px); /* Responsive overlap based on viewport height - lowered for desktop */
     min-height: 40vh; /* Ensure content has minimum height */
   }
 

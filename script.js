@@ -839,8 +839,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       fulltimeForm.classList.remove('active');
       internshipForm.classList.remove('active');
-    }
-  });
+    }
+  });
 });
 
 // Parallax scroll effects for corporate shapes
@@ -1282,7 +1282,6 @@ ScrollTrigger.matchMedia({
   }
 });
 
-
 // ===== Index Page Hero + Cards (no zoom) =====
 (function initIndexPage() {
   const isIndex = document.body.classList.contains('index-page');
@@ -1310,69 +1309,5 @@ ScrollTrigger.matchMedia({
       ease: 'power2.out'
     });
   }
-
-  // No scroll indicator on static layout
-
-  // Footer always clickable; no JS opacity/pointer-events changes
 })();
 
-// ========================
-// INTERNSHIP FORM SUBMISSION
-// ========================
-// document.getElementById("internship-form").addEventListener("submit", async (e) => {
-//   e.preventDefault();
-
-//   const scriptURL = "https://script.google.com/macros/s/AKfycbw-H_or_DodYpYKi2y9-CPu4dB7IYjSBxnVWUkVvYMI6xoX0cqLJropj7mwB9Tv_SmT/exec"; // <--- PUT YOUR URL HERE
-
-//   // Get fields
-//   const name = document.getElementById("intern-name").value;
-//   const email = document.getElementById("intern-email").value;
-//   const phone = document.getElementById("intern-phone").value;
-//   const message = document.getElementById("intern-message").value;
-
-//   const fileInput = document.getElementById("intern-file");
-//   let fileBase64 = "";
-//   let fileName = "";
-
-//   if (fileInput.files.length > 0) {
-//     const file = fileInput.files[0];
-//     fileName = file.name;
-//     fileBase64 = await toBase64(file);
-//   }
-
-//   const formData = {
-//     name,
-//     email,
-//     phone,
-//     message,
-//     file: fileBase64,
-//     fileName: fileName
-//   };
-
-//   try {
-//     const res = await fetch(scriptURL, {
-//       method: "POST",
-//       body: JSON.stringify(formData),
-//     });
-
-//     if (res.ok) {
-//       alert("Internship form submitted successfully!");
-//       e.target.reset();
-//     } else {
-//       alert("Error submitting form.");
-//     }
-
-//   } catch (err) {
-//     alert("Network error: " + err);
-//   }
-// });
-
-// // Convert file to Base64
-// function toBase64(file) {
-//   return new Promise((resolve, reject) => {
-//     const reader = new FileReader();
-//     reader.readAsDataURL(file);
-//     reader.onload = () => resolve(reader.result.split(',')[1]);
-//     reader.onerror = reject;
-//   });
-// }
