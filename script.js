@@ -2083,7 +2083,7 @@ document.addEventListener('click', (e) => {
   const interactiveGalleryData = [
     {
       id: 1,
-      image: "assets/ANNUAL.png",
+      image: "assets/gallery/ANNUAL.png",
       title: "Annual SES 2025",
       description: "Celebrating Excellence Together - A momentous gathering showcasing achievements and milestones.",
       category: "events",
@@ -2092,7 +2092,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 2,
-      image: "assets/tourtalkjan.png",
+      image: "assets/gallery/tourtalkjan.webp",
       title: "Tour Talk January",
       description: "Educational journey embarking on discovery and learning in the new year.",
       category: "tours",
@@ -2101,7 +2101,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 3,
-      image: "assets/tourtalkfebipoh.png",
+      image: "assets/gallery/tourtalkfebipoh.png",
       title: "Tour Talk February - Ipoh",
       description: "Academic exploration through cultural landmarks and educational institutions.",
       category: "tours",
@@ -2110,7 +2110,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 4,
-      image: "assets/programteknomaklumatkv.png",
+      image: "assets/gallery/programteknomaklumatkv.png",
       title: "Program Tekno Maklumat",
       description: "Educational technology visit exploring the intersection of education and technology.",
       category: "tours",
@@ -2119,7 +2119,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 5,
-      image: "assets/penangtourd1.png",
+      image: "assets/gallery/penangtourd1.png",
       title: "Penang Educational Tour",
       description: "Enriching educational experience in the historic city of Penang.",
       category: "tours",
@@ -2128,7 +2128,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 10,
-      image: "assets/PINANGD2.png",
+      image: "assets/gallery/PINANGD2.png",
       title: "Penang Educational Tour Day 2",
       description: "Continuing the enriching educational experience in the historic city of Penang.",
       category: "tours",
@@ -2137,7 +2137,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 6,
-      image: "assets/simposiumjempol.png",
+      image: "assets/gallery/simposiumjempol.png",
       title: "Simposium Jempol",
       description: "Educational symposium bringing together students and educators.",
       category: "events",
@@ -2146,7 +2146,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 7,
-      image: "assets/simposiumpedas.png",
+      image: "assets/gallery/simposiumpedas.png",
       title: "Simposium Pedas",
       description: "Academic gathering focusing on educational excellence and innovation.",
       category: "events",
@@ -2155,7 +2155,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 8,
-      image: "assets/SIMPOSIUMPENDIDIKANKL.png",
+      image: "assets/gallery/SIMPOSIUMPENDIDIKANKL.png",
       title: "Simposium Pendidikan KL",
       description: "Educational symposium in Kuala Lumpur promoting academic excellence.",
       category: "events",
@@ -2164,7 +2164,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 9,
-      image: "assets/SIMPOSIUMPENDIDIKANSHAHALAM.png",
+      image: "assets/gallery/SIMPOSIUMPENDIDIKANSHAHALAM.png",
       title: "Simposium Shah Alam",
       description: "Major educational event showcasing innovations in learning and teaching.",
       category: "events",
@@ -2173,7 +2173,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 11,
-      image: "assets/spmuar.png",
+      image: "assets/gallery/spmuar.png",
       title: "Simposium Muar",
       description: "Educational symposium in Muar bringing together students and educators.",
       category: "events",
@@ -2182,7 +2182,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 12,
-      image: "assets/sppontian.png",
+      image: "assets/gallery/sppontian.png",
       title: "Simposium Pontian",
       description: "Academic gathering in Pontian focusing on educational excellence and innovation.",
       category: "events",
@@ -2191,7 +2191,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 13,
-      image: "assets/simposiumpendidikanpontian.png",
+      image: "assets/gallery/simposiumpendidikanpontian.png",
       title: "Simposium Pendidikan Pontian",
       description: "Educational symposium in Pontian bringing together students and educators.",
       category: "events",
@@ -2200,7 +2200,7 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 14,
-      image: "assets/simposiumpendidikanjb.png",
+      image: "assets/gallery/simposiumpendidikanjb.png",
       title: "Simposium Pendidikan Johor Bahru",
       description: "Academic gathering in Johor Bahru focusing on educational excellence.",
       category: "events",
@@ -2209,13 +2209,40 @@ document.addEventListener('click', (e) => {
     },
     {
       id: 15,
-      image: "assets/simposiumpendidikanbatupahat.png",
+      image: "assets/gallery/simposiumpendidikanbatupahat.png",
       title: "Simposium Pendidikan Batu Pahat",
       description: "Educational symposium in Batu Pahat promoting academic excellence and innovation.",
       category: "events",
       date: "2026",
       location: "Batu Pahat"
-    }
+    },
+    {
+      id: 16,
+      image: "assets/gallery/programUIC.jpg",
+      title: "UIC Student Registration",
+      description: "Registration for New Students for the Islamic Sharia Diploma Program at UIC",
+      category: "events",
+      date: "2026",
+      location: "Mantin"
+    },
+    {
+      id: 17,
+      image: "assets/gallery/panduanUPU.jpg",
+      title: "UPU Merit Calculation",
+      description: "Guide and Calculation of UPU Merit for Form 5 students of SMK METHODIST (P) KLANG",
+      category: "tours",
+      date: "2026",
+      location: "Klang"
+    },
+    {
+      id: 18,
+      image: "assets/gallery/programUITM.jpg",
+      title: "UiTM Student Registration",
+      description: "Registration of New Students for UiTM Pre-Diploma and Diploma Programmes (KKBUITM - UIC)",
+      category: "events",
+      date: "2026",
+      location: "Mantin"
+    },
   ];
 
   // State management
